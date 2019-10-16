@@ -8,6 +8,7 @@ module.exports = {
   globals: {
     graphql: false,
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
