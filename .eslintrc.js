@@ -6,7 +6,7 @@ module.exports = {
   },
   plugins: ['react'],
   globals: {
-    graphql: false,
+    graphql: true,
   },
   parser: 'babel-eslint',
   parserOptions: {

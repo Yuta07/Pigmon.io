@@ -1,87 +1,91 @@
 import React from 'react';
-// import { Link, graphql } from 'gatsby';
-// import Bio from '../components/bio';
-// import Layout from '../components/layout';
-// import SEO from '../components/seo';
-// import { rhythm } from '../utils/typography';
-
-type IndexProps = {
-  data: {
-    allMarkdownRemark: any;
-    site: {
-      siteMetadata: {
-        title: string;
-      };
-    };
-  };
-};
+import styled from 'styled-components';
+// import components
+import Bio from '../components/Bio';
+import Layout from '../components/Layout';
 
 const Index = (props: IndexProps) => {
-  // const { data } = props;
-  // const siteTitle = data.site.siteMetadata.title;
-  // const posts = data.allMarkdownRemark.edges;
-
+  console.log(props);
   return (
-    <div>
-      <p>asdf</p>
-    </div>
+    <Layout>
+      <IndexWrapper>
+        <Bio />
+        <IndexContainer>
+          {/* <div>
+            <h1>Amazing Pandas Eating Things</h1>
+            <h4>{props.data.allMarkdownRemark.totalCount} Posts</h4>
+            {props.data.allMarkdownRemark.edges.map(({ node }) => (
+              <div key={node.id}>
+                <h3>
+                  {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
+                </h3>
+                <p>{node.excerpt}</p>
+              </div>
+            ))}
+          </div> */}
+        </IndexContainer>
+      </IndexWrapper>
+    </Layout>
   );
-  //   <Layout location={this.props.location} title={siteTitle}>
-  //     <SEO title="All posts" />
-  //     <Bio />
-  //     {posts.map(({ node }) => {
-  //       const title = node.frontmatter.title || node.fields.slug;
-  //       return (
-  //         <article key={node.fields.slug}>
-  //           <header>
-  //             <h3
-  //               style={{
-  //                 marginBottom: rhythm(1 / 4),
-  //               }}
-  //             >
-  //               <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-  //                 {title}
-  //               </Link>
-  //             </h3>
-  //             <small>{node.frontmatter.date}</small>
-  //           </header>
-  //           <section>
-  //             <p
-  //               dangerouslySetInnerHTML={{
-  //                 __html: node.frontmatter.description || node.excerpt,
-  //               }}
-  //             />
-  //           </section>
-  //         </article>
-  //       );
-  //     })}
-  //   </Layout>
-  // );
 };
 
-export default Index;
+const IndexWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+`;
 
-// export const pageQuery = graphql`
-//   query {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-//       edges {
-//         node {
-//           excerpt
-//           fields {
-//             slug
-//           }
-//           frontmatter {
-//             date(formatString: "MMMM DD, YYYY")
-//             title
-//             description
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+const IndexContainer = styled.div`
+  width: calc(100% - 240px);
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  order: 1;
+`;
+
+interface IndexProps {
+  data: {
+    allMarkdownRemark: {
+      totalCount: number;
+      edges: [
+        {
+          node: {
+            id: string;
+            frontmatter: {
+              title: string;
+              date: string;
+            };
+            fields: {
+              slug: string;
+            };
+            excerpt: string;
+          };
+        }
+      ];
+    };
+  };
+}
+
+declare function graphql(x: TemplateStringsArray): any;
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`;
+
+export default Index;
