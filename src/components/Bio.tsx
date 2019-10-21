@@ -34,7 +34,7 @@ const CoreBioWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  order: 2
+  order: 2;
   width: 240px;
   height: 240px;
   padding: 1rem 0.8rem;
