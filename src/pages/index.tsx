@@ -11,6 +11,8 @@ import { IndexPageProps } from '../types/type';
 const Index = (props: IndexPageProps) => {
   const { edges } = props.data.allMarkdownRemark;
 
+  console.log(edges);
+
   const renderIndexPagePost = edges.map(({ node }) => (
     <BlogPostCard key={node.id}>
       <BlogPostLink to={node.fields.slug}>
@@ -63,7 +65,7 @@ const BlogPostCard = styled.div``;
 
 const BlogPostLink = styled(Link)`
   display: flex;
-  padding: 1rem 0;
+  padding: 1.25rem 0;
   color: #353333;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   text-decoration: none;
@@ -82,7 +84,7 @@ const BlogPostDate = styled.small`
 
 const BlogPostHero = styled.h2`
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 750;
   color: #e68123;
   margin: 0;
 `;
@@ -95,7 +97,7 @@ const BlogPostDescription = styled.p`
 // Index Pages graphql
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
       edges {
         node {
           id
@@ -103,6 +105,7 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY")
             description
+            tags
             featuredImage {
               childImageSharp {
                 fluid(maxWidth: 120, maxHeight: 120, quality: 100) {

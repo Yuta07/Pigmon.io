@@ -1,10 +1,10 @@
 import React from 'react';
-// import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 // import components
 import Layout from '../components/Layout';
 
-const BlogPost = () => {
+const BlogPost = (props: BlogPostProps) => {
   return (
     <Layout>
       <BlogPostContainer>
@@ -34,49 +34,46 @@ const BlogPostContainer = styled.div`
 `;
 
 // graphql settings
-// interface BlogPostProps {
-//   data: {
-//     allMarkdownRemark: {
-//       totalCount: number;
-//       edges: [
-//         {
-//           node: {
-//             id: string;
-//             frontmatter: {
-//               title: string;
-//               date: string;
-//             };
-//             fields: {
-//               slug: string;
-//             };
-//             excerpt: string;
-//           };
-//         }
-//       ];
-//     };
-//   };
-// }
+interface BlogPostProps {
+  data: {
+    allMarkdownRemark: {
+      edges: [
+        {
+          node: {
+            id: string;
+            frontmatter: {
+              title: string;
+              date: string;
+            };
+            fields: {
+              slug: string;
+            };
+            excerpt: string;
+          };
+        }
+      ];
+    };
+  };
+}
 
-// declare function graphql(x: TemplateStringsArray): any;
-// export const query = graphql`
-//   query IndexQuery {
-//     allMarkdownRemark {
-//       totalCount
-//       edges {
-//         node {
-//           id
-//           frontmatter {
-//             title
-//             date(formatString: "DD MMMM, YYYY")
-//           }
-//           fields {
-//             slug
-//           }
-//           excerpt
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query BlogPostQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`;
 
 export default BlogPost;

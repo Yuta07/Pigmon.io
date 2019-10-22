@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 // import components
-import AppNav from './AppNav';
+import Category from './Category';
 // import assets
 import Logo from '../atom/Logo';
 
@@ -30,7 +30,7 @@ const Header = () => {
             <Logo width={40} />
           </HeaderRootLink>
         </HeaderLogoContainer>
-        <AppNav />
+        <Category />
       </HeaderWrapper>
     </CoreHeaderWrapper>
   );

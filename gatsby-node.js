@@ -1,4 +1,5 @@
 const path = require(`path`);
+const _ = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -20,18 +21,24 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // create blog with tamplate
   const blogPost = path.resolve(`./src/templates/BlogPost.tsx`);
+  const tagTemplate = path.resolve('./src/templates/tags.tsx');
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      postsRemark: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
         edges {
           node {
             fields {
               slug
             }
             frontmatter {
-              title
+              tags
             }
           }
+        }
+      }
+      tagsGroup: allMarkdownRemark(limit: 1000) {
+        group(field: frontmatter___tags) {
+          fieldValue
         }
       }
     }
@@ -45,16 +52,24 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allMarkdownRemark.edges;
 
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
-
     createPage({
       path: post.node.fields.slug,
       component: blogPost,
       context: {
         slug: post.node.fields.slug,
-        previous,
-        next,
+      },
+    });
+  });
+
+  // make tag groups
+  const tags = result.data.tagsGroup.group;
+
+  tags.forEach(tag => {
+    createPage({
+      path: `/category/${_.kebabCase(tag.fieldValue)}`,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
       },
     });
   });

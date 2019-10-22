@@ -5,6 +5,12 @@ export type Link = {
   name: string;
 };
 
+// nav type
+export type Category = {
+  path: string;
+  title: string;
+};
+
 // IndexImage type
 // from index.d.ts in gatsby-image
 interface FluidObject {
@@ -27,6 +33,7 @@ interface childImageSharp {
   childImageSharp: fluid;
 }
 
+// index page blog post type
 export interface IndexPageProps {
   data: {
     allMarkdownRemark: {
@@ -38,6 +45,7 @@ export interface IndexPageProps {
               title: string;
               date: string;
               description: string;
+              tags: string[];
               featuredImage: childImageSharp;
             };
             fields: {

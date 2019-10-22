@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+// import components
+// import Tags from '../pages/Tags';
 
 const AppNav = () => {
   return (

@@ -21,3 +21,7 @@ body {
   border-radius: 6px;
   margin-right: 2rem;
 }
+
+.active {
+  border-bottom: 2px solid #e68123;
+}
