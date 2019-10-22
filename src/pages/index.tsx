@@ -1,34 +1,46 @@
 import React from 'react';
+import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 // import components
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
+// import type
+import { IndexPageProps } from '../types/type';
 
-const Index = (props: IndexProps) => {
-  console.log(props);
+const Index = (props: IndexPageProps) => {
+  const { edges } = props.data.allMarkdownRemark;
+
+  const renderIndexPagePost = edges.map(({ node }) => (
+    <BlogPostCard key={node.id}>
+      <BlogPostLink to={node.fields.slug}>
+        <Img
+          fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
+          alt={node.frontmatter.title}
+          className="customImg"
+        />
+        <BlogPostContents>
+          <BlogPostDate>{node.frontmatter.date}</BlogPostDate>
+          <BlogPostHero>{node.frontmatter.title}</BlogPostHero>
+          <BlogPostDescription>{node.frontmatter.description}</BlogPostDescription>
+        </BlogPostContents>
+      </BlogPostLink>
+    </BlogPostCard>
+  ));
+
   return (
     <Layout>
       <IndexWrapper>
         <Bio />
         <IndexContainer>
-          {/* <div>
-            <h1>Amazing Pandas Eating Things</h1>
-            <h4>{props.data.allMarkdownRemark.totalCount} Posts</h4>
-            {props.data.allMarkdownRemark.edges.map(({ node }) => (
-              <div key={node.id}>
-                <h3>
-                  {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
-                </h3>
-                <p>{node.excerpt}</p>
-              </div>
-            ))}
-          </div> */}
+          <BlogPostsContainer>{renderIndexPagePost}</BlogPostsContainer>
         </IndexContainer>
       </IndexWrapper>
     </Layout>
   );
 };
 
+// Index Pages style
 const IndexWrapper = styled.div`
   position: relative;
   display: flex;
@@ -43,45 +55,65 @@ const IndexContainer = styled.div`
   order: 1;
 `;
 
-interface IndexProps {
-  data: {
-    allMarkdownRemark: {
-      totalCount: number;
-      edges: [
-        {
-          node: {
-            id: string;
-            frontmatter: {
-              title: string;
-              date: string;
-            };
-            fields: {
-              slug: string;
-            };
-            excerpt: string;
-          };
-        }
-      ];
-    };
-  };
-}
+const BlogPostsContainer = styled.div`
+  width: 100%;
+`;
 
-declare function graphql(x: TemplateStringsArray): any;
+const BlogPostCard = styled.div``;
+
+const BlogPostLink = styled(Link)`
+  display: flex;
+  padding: 1rem 0;
+  color: #353333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+
+  &:hover {
+    background-color: #efefef;
+    transition: 0.2s;
+  }
+`;
+
+const BlogPostContents = styled.div``;
+
+const BlogPostDate = styled.small`
+  color: #828282;
+`;
+
+const BlogPostHero = styled.h2`
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #e68123;
+  margin: 0;
+`;
+
+const BlogPostDescription = styled.p`
+  margin: 0;
+  margin-top: 0.5rem;
+`;
+
+// Index Pages graphql
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark {
-      totalCount
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           id
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            description
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 120, maxHeight: 120, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           fields {
             slug
           }
-          excerpt
         }
       }
     }

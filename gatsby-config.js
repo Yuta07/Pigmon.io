@@ -12,10 +12,12 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog`,
-        path: `${__dirname}/src/content/blog`,
+        name: `content`,
+        path: `${__dirname}/src/content`,
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -38,12 +40,22 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Pigmon.io`,
+        short_name: `Pigmon.io`,
+        start_url: `/`,
+        background_color: `#fefefe`,
+        theme_color: `#353333`,
+        display: `standalone`,
+        icon: `static/pigmon.png`,
       },
     },
     `gatsby-plugin-feed`,
