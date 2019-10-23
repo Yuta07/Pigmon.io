@@ -24,7 +24,7 @@ const Footer = () => {
 
 const CoreFooterWrapper = styled.footer`
   width: 100%;
-  box-shadow: 0px -2px 3px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -1px 4px -1px rgba(0, 0, 0, 0.1);
 `;
 
 const FooterWrapper = styled.div`

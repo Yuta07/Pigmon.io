@@ -7,10 +7,36 @@ import Layout from '../components/Layout';
 // import type
 import { IndexPageProps } from '../types/type';
 
+const colors: string[] = ['#e74c3c', '#f1c40f', '#1abc9c', '#3498db', '#9b59b6'];
+
 const Index = (props: IndexPageProps) => {
   const { edges } = props.data.allMarkdownRemark;
 
-  console.log(edges);
+  const renderTag = (tags: string[]) => {
+    let items = [];
+    for (let i = 0; i < tags.length; i++) {
+      let color: string = '#34495e';
+      switch (tags[i]) {
+        case 'All':
+          color = colors[0];
+          break;
+        case 'Tech':
+          color = colors[1];
+          break;
+        case 'Life':
+          color = colors[2];
+          break;
+        case 'Asobi':
+          color = colors[3];
+          break;
+        case 'Others':
+          color = colors[4];
+          break;
+      }
+      items.push(<BlogPostTag color={color}>{tags[i]}</BlogPostTag>);
+    }
+    return items;
+  };
 
   const renderIndexPagePost = edges.map(({ node }) => (
     <BlogPostCard key={node.id}>
@@ -23,7 +49,10 @@ const Index = (props: IndexPageProps) => {
         <BlogPostContents>
           <BlogPostHero>{node.frontmatter.title}</BlogPostHero>
           <BlogPostDescription>{node.frontmatter.description}</BlogPostDescription>
-          <BlogPostDate>{node.frontmatter.date}</BlogPostDate>
+          <BlogPostBottom>
+            {renderTag(node.frontmatter.tags)}
+            <BlogPostDate>{node.frontmatter.date}</BlogPostDate>
+          </BlogPostBottom>
         </BlogPostContents>
       </BlogPostLink>
     </BlogPostCard>
@@ -82,8 +111,22 @@ const BlogPostDescription = styled.p`
   margin: 0;
 `;
 
+const BlogPostBottom = styled.div`
+  display: flex;
+  margin-top: 0.5rem;
+`;
+
+const BlogPostTag = styled.span<{ color: string }>`
+  color: #fefefe;
+  background-color: ${props => props.color};
+  border-radius: 8px;
+  padding: 2px 0.5rem;
+  margin-right: 0.5rem;
+`;
+
 const BlogPostDate = styled.small`
   color: #828282;
+  margin: 0 0 0 auto;
 `;
 
 // Index Pages graphql

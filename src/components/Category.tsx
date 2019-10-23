@@ -4,8 +4,7 @@ import styled from 'styled-components';
 // import data
 import { CategoryData } from '../data/Category';
 
-const Category = (props: any) => {
-  console.log(props);
+const Category = () => {
   const renderCategoryNav = CategoryData.map((category, index) => {
     return (
       <CategoryList key={index}>
@@ -33,7 +32,8 @@ const CategoryUnOrderedList = styled.ul`
 
 const CategoryList = styled.li`
   list-style: none;
-  padding: 0 0.6rem 2px;
+  padding: 0 0.8rem 2px;
+  font-weight: 350;
 `;
 
 const CategoryLink = styled(Link)`

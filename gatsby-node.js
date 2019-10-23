@@ -64,9 +64,11 @@ exports.createPages = async ({ graphql, actions }) => {
   // make tag groups
   const tags = result.data.tagsGroup.group;
 
+  console.log(tags);
+
   tags.forEach(tag => {
     createPage({
-      path: `/category/${_.kebabCase(tag.fieldValue)}`,
+      path: `/category/${tag.fieldValue}`,
       component: categoryPost,
       context: {
         tag: tag.fieldValue,

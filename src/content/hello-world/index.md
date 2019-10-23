@@ -3,7 +3,7 @@ title: Hello World
 date: '2015-05-01T22:12:03.284Z'
 description: 'Hello World, Thank you gye and goodbye'
 featuredImage: './salty_egg.jpg'
-tags: ['life', 'asobi']
+tags: ['Asobi']
 ---
 
 This is my first post on my new fake blog! How exciting!
