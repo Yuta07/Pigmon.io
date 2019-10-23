@@ -21,10 +21,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // create blog with tamplate
   const blogPost = path.resolve(`./src/templates/BlogPost.tsx`);
-  const tagTemplate = path.resolve('./src/templates/tags.tsx');
+  const categoryPost = path.resolve('./src/templates/CategoryPost.tsx');
   const result = await graphql(`
     query {
-      postsRemark: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+      postsRemark: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 2000) {
         edges {
           node {
             fields {
@@ -36,7 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 1000) {
+      tagsGroup: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
         }
@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
   tags.forEach(tag => {
     createPage({
       path: `/category/${_.kebabCase(tag.fieldValue)}`,
-      component: tagTemplate,
+      component: categoryPost,
       context: {
         tag: tag.fieldValue,
       },

@@ -29,13 +29,21 @@ const CoreFooterWrapper = styled.footer`
 
 const FooterWrapper = styled.div`
   width: 96%;
-  max-width: 760px;
+  max-width: 900px;
   height: 60px;
   margin: 0 auto;
   padding: 5px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 560px) and (max-width: 959px) {
+    max-width: 900px;
+  }
+
+  @media (max-width: 559px) {
+    max-width: 520px;
+  }
 `;
 
 const FooterLinkContainer = styled.div`

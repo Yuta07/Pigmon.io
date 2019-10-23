@@ -21,9 +21,7 @@ const Layout = (props: LayoutProps) => {
       <AppBody>
         <Header />
         <CoreLayoutWrapper>
-          <MainContainer>
-            <Main>{props.children}</Main>
-          </MainContainer>
+          <MainContainer>{props.children}</MainContainer>
         </CoreLayoutWrapper>
         <Footer />
       </AppBody>
@@ -41,18 +39,22 @@ const AppBody = styled.div`
 
 const CoreLayoutWrapper = styled.div`
   width: 96%;
-  max-width: 760px;
+  max-width: 900px;
   min-height: calc(100vh - 130px);
-  margin: 60px auto;
+  margin: 30px auto 80px;
+
+  @media (min-width: 560px) and (max-width: 959px) {
+    max-width: 900px;
+  }
+
+  @media (max-width: 559px) {
+    max-width: 520px;
+  }
 `;
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-`;
-
-const Main = styled.main`
   width: 100%;
 `;
 

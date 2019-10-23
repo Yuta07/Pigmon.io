@@ -10,7 +10,7 @@ export const CategoryData: Category[] = [
     title: 'Tech',
   },
   {
-    path: '/categorylLife',
+    path: '/categoryl/life',
     title: 'Life',
   },
   {
@@ -18,7 +18,7 @@ export const CategoryData: Category[] = [
     title: 'Asobi',
   },
   {
-    path: '/Category/others',
+    path: '/category/others',
     title: 'Others',
   },
 ];

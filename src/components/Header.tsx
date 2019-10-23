@@ -26,9 +26,9 @@ const Header = () => {
           <HeaderRootLink to="/">
             <HeaderTitleText>{data.site.siteMetadata.title}</HeaderTitleText>
           </HeaderRootLink>
-          <HeaderRootLink to="/">
+          <HeaderRootLinkLogo to="/">
             <Logo width={40} />
-          </HeaderRootLink>
+          </HeaderRootLinkLogo>
         </HeaderLogoContainer>
         <Category />
       </HeaderWrapper>
@@ -39,18 +39,27 @@ const Header = () => {
 // Header style
 const CoreHeaderWrapper = styled.header`
   width: 100%;
-  box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.1);
 `;
 
 const HeaderWrapper = styled.div`
   width: 96%;
-  max-width: 760px;
+  max-width: 900px;
   height: 70px;
   margin: 0 auto;
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 560px) and (max-width: 959px) {
+    max-width: 900px;
+  }
+
+  @media (max-width: 559px) {
+    max-width: 520px;
+  }
 `;
 
 const HeaderLogoContainer = styled.div`
@@ -68,6 +77,11 @@ const HeaderTitleText = styled.h1`
 const HeaderRootLink = styled(Link)`
   color: #353333;
   text-decoration: none;
+`;
+
+const HeaderRootLinkLogo = styled(HeaderRootLink)`
+  position: absolute;
+  left: 48%;
 `;
 
 export default Header;

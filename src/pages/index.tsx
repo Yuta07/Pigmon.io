@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 // import components
-import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 // import type
 import { IndexPageProps } from '../types/type';
@@ -22,9 +21,9 @@ const Index = (props: IndexPageProps) => {
           className="customImg"
         />
         <BlogPostContents>
-          <BlogPostDate>{node.frontmatter.date}</BlogPostDate>
           <BlogPostHero>{node.frontmatter.title}</BlogPostHero>
           <BlogPostDescription>{node.frontmatter.description}</BlogPostDescription>
+          <BlogPostDate>{node.frontmatter.date}</BlogPostDate>
         </BlogPostContents>
       </BlogPostLink>
     </BlogPostCard>
@@ -32,66 +31,59 @@ const Index = (props: IndexPageProps) => {
 
   return (
     <Layout>
-      <IndexWrapper>
-        <Bio />
-        <IndexContainer>
-          <BlogPostsContainer>{renderIndexPagePost}</BlogPostsContainer>
-        </IndexContainer>
-      </IndexWrapper>
+      <BlogPostsContainer>{renderIndexPagePost}</BlogPostsContainer>
     </Layout>
   );
 };
 
 // Index Pages style
-const IndexWrapper = styled.div`
-  position: relative;
+const BlogPostsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
-const IndexContainer = styled.div`
-  width: calc(100% - 240px);
-  margin-right: 2rem;
-  display: flex;
-  flex-direction: column;
-  order: 1;
-`;
+const BlogPostCard = styled.div`
+  width: 50%;
+  margin-top: 60px;
 
-const BlogPostsContainer = styled.div`
-  width: 100%;
-`;
+  &:nth-child(2n - 1) {
+    padding: 0 5% 0 0;
+  }
 
-const BlogPostCard = styled.div``;
-
-const BlogPostLink = styled(Link)`
-  display: flex;
-  padding: 1.25rem 0;
-  color: #353333;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  text-decoration: none;
-
-  &:hover {
-    background-color: #efefef;
-    transition: 0.2s;
+  &:nth-child(2n) {
+    padding: 0 0 0 5%;
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
   }
 `;
 
-const BlogPostContents = styled.div``;
-
-const BlogPostDate = styled.small`
-  color: #828282;
+const BlogPostLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  color: #353333;
+  text-decoration: none;
 `;
+
+const BlogPostContents = styled.div``;
 
 const BlogPostHero = styled.h2`
   font-size: 1.8rem;
   font-weight: 750;
   color: #e68123;
-  margin: 0;
+  margin: 1rem 0 0;
+
+  &:hover {
+    text-decoration: underline;
+    transition: 0.2s;
+  }
 `;
 
 const BlogPostDescription = styled.p`
   margin: 0;
-  margin-top: 0.5rem;
+`;
+
+const BlogPostDate = styled.small`
+  color: #828282;
 `;
 
 // Index Pages graphql
@@ -108,7 +100,7 @@ export const query = graphql`
             tags
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 120, maxHeight: 120, quality: 100) {
+                fluid(maxWidth: 400, maxHeight: 240, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
