@@ -45,7 +45,7 @@ export interface IndexPageProps {
               title: string;
               date: string;
               description: string;
-              tags: string[];
+              categories: string[];
               featuredImage: childImageSharp;
             };
             fields: {

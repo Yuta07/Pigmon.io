@@ -10,15 +10,11 @@ export const CategoryData: Category[] = [
     title: 'Tech',
   },
   {
-    path: '/categoryl/life',
+    path: '/category/life',
     title: 'Life',
   },
   {
     path: '/category/asobi',
     title: 'Asobi',
-  },
-  {
-    path: '/category/others',
-    title: 'Others',
   },
 ];

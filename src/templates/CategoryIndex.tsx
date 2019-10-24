@@ -11,7 +11,7 @@ import { IndexPageProps } from '../types/type';
 // import utils
 import { CategoryColorFilter } from '../utils/Utils';
 
-const Index = (props: IndexPageProps) => {
+const CategoryIndex = (props: IndexPageProps) => {
   const { edges } = props.data.allMarkdownRemark;
 
   const renderCategory = (categories: string[]) => {
@@ -36,10 +36,8 @@ const Index = (props: IndexPageProps) => {
           className="customImg"
         />
         <Post.BlogPostContents>
-          <Post.BlogPostContentsLink to={node.fields.slug}>
-            <Post.BlogPostHero>{node.frontmatter.title}</Post.BlogPostHero>
-            <Post.BlogPostDescription>{node.frontmatter.description}</Post.BlogPostDescription>
-          </Post.BlogPostContentsLink>
+          <Post.BlogPostHero>{node.frontmatter.title}</Post.BlogPostHero>
+          <Post.BlogPostDescription>{node.frontmatter.description}</Post.BlogPostDescription>
           <Post.BlogPostBottom>
             {renderCategory(node.frontmatter.categories)}
             <Post.BlogPostDate>{node.frontmatter.date}</Post.BlogPostDate>
@@ -56,10 +54,14 @@ const Index = (props: IndexPageProps) => {
   );
 };
 
-// Index Pages graphql
+// Category Index Pages graphql
 export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 2000) {
+  query CategoryIndexQuery($category: String) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 2000
+      filter: { frontmatter: { categories: { in: [$category] } } }
+    ) {
       edges {
         node {
           id
@@ -85,4 +87,4 @@ export const query = graphql`
   }
 `;
 
-export default Index;
+export default CategoryIndex;

@@ -40,7 +40,7 @@ const AppBody = styled.div`
 const CoreLayoutWrapper = styled.div`
   width: 96%;
   max-width: 900px;
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 240px);
   margin: 30px auto 80px;
 
   @media (min-width: 560px) and (max-width: 959px) {

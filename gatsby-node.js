@@ -21,9 +21,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // create blog with tamplate
   const blogPost = path.resolve(`./src/templates/BlogPost.tsx`);
-  const categoryPost = path.resolve('./src/templates/CategoryPost.tsx');
+  const categoryIndex = path.resolve('./src/templates/CategoryIndex.tsx');
   const result = await graphql(`
-    query {
+    {
       postsRemark: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 2000) {
         edges {
           node {
@@ -31,13 +31,13 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
             frontmatter {
-              tags
+              categories
             }
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
+      categoriesGroup: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___categories) {
           fieldValue
         }
       }
@@ -49,29 +49,27 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges;
+  const posts = result.data.postsRemark.edges;
 
-  posts.forEach((post, index) => {
+  posts.forEach(({ node }) => {
     createPage({
-      path: post.node.fields.slug,
+      path: node.fields.slug,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: node.fields.slug,
       },
     });
   });
 
   // make tag groups
-  const tags = result.data.tagsGroup.group;
+  const categories = result.data.categoriesGroup.group;
 
-  console.log(tags);
-
-  tags.forEach(tag => {
+  categories.forEach(category => {
     createPage({
-      path: `/category/${tag.fieldValue}`,
-      component: categoryPost,
+      path: `/category/${_.kebabCase(category.fieldValue)}/`,
+      component: categoryIndex,
       context: {
-        tag: tag.fieldValue,
+        category: category.fieldValue,
       },
     });
   });
