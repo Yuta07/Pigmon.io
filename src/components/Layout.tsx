@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import 'typeface-lato';
 import 'normalize.css';
-// import component
+// import components
 import Footer from './Footer';
 import Header from './Header';
 
@@ -18,13 +18,9 @@ const Layout = (props: LayoutProps) => {
         <meta charSet="utf-8" />
         <title>Pigmon.io</title>
       </Helmet>
-      <AppBody>
-        <Header />
-        <CoreLayoutWrapper>
-          <MainContainer>{props.children}</MainContainer>
-        </CoreLayoutWrapper>
-        <Footer />
-      </AppBody>
+      <Header />
+      <MainContainer>{props.children}</MainContainer>
+      <Footer />
     </AppBody>
   );
 };
@@ -35,21 +31,6 @@ const AppBody = styled.div`
   min-height: 100vh;
   color: #353333;
   background-color: #fefefe;
-`;
-
-const CoreLayoutWrapper = styled.div`
-  width: 96%;
-  max-width: 900px;
-  min-height: calc(100vh - 240px);
-  margin: 30px auto 80px;
-
-  @media (min-width: 560px) and (max-width: 959px) {
-    max-width: 900px;
-  }
-
-  @media (max-width: 559px) {
-    max-width: 520px;
-  }
 `;
 
 const MainContainer = styled.div`

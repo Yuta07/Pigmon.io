@@ -57,3 +57,19 @@ export interface IndexPageProps {
     };
   };
 }
+
+export interface BlogPostProps {
+  data: {
+    markdownRemark: {
+      html: string;
+      id: string;
+      frontmatter: {
+        title: string;
+        description: string;
+        date: string;
+        categories: string[];
+        featuredImage: childImageSharp;
+      };
+    };
+  };
+}

@@ -1,10 +1,6 @@
 import React from 'react';
 import { useStaticQuery, Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-// import components
-import Category from './Category';
-// import assets
-import Logo from '../atom/Logo';
 
 const Header = () => {
   const data = useStaticQuery(
@@ -22,15 +18,9 @@ const Header = () => {
   return (
     <CoreHeaderWrapper>
       <HeaderWrapper>
-        <HeaderLogoContainer>
-          <HeaderRootLink to="/">
-            <HeaderTitleText>{data.site.siteMetadata.title}</HeaderTitleText>
-          </HeaderRootLink>
-          <HeaderRootLinkLogo to="/">
-            <Logo width={40} />
-          </HeaderRootLinkLogo>
-        </HeaderLogoContainer>
-        <Category />
+        <HeaderRootLink to="/">
+          <HeaderTitleText>{data.site.siteMetadata.title}</HeaderTitleText>
+        </HeaderRootLink>
       </HeaderWrapper>
     </CoreHeaderWrapper>
   );
@@ -40,33 +30,26 @@ const Header = () => {
 const CoreHeaderWrapper = styled.header`
   width: 100%;
   position: relative;
-  box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #dedede;
 `;
 
 const HeaderWrapper = styled.div`
   width: 96%;
-  max-width: 900px;
+  max-width: 720px;
   height: 70px;
   margin: 0 auto;
   padding: 15px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 
   @media (min-width: 560px) and (max-width: 959px) {
-    max-width: 900px;
+    max-width: 720px;
   }
 
   @media (max-width: 559px) {
     max-width: 520px;
   }
-`;
-
-const HeaderLogoContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 50%;
 `;
 
 const HeaderTitleText = styled.h1`

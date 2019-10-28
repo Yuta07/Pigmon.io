@@ -3,9 +3,11 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import _ from 'lodash';
 // import components
+import Category from '../components/Category';
+import CategoryTitle from '../components/CategoryTitle';
 import Layout from '../components/Layout';
 // import styled
-import * as Post from '../styles/Post';
+import * as Post from '../styles/PostIndex';
 // import type
 import { IndexPageProps } from '../types/type';
 // import utils
@@ -13,6 +15,7 @@ import { CategoryColorFilter } from '../utils/Utils';
 
 const Index = (props: IndexPageProps) => {
   const { edges } = props.data.allMarkdownRemark;
+  let categoryName = location.pathname === '/' ? 'All' : location.pathname.split('/')[2];
 
   const renderCategory = (categories: string[]) => {
     let items = [];
@@ -27,31 +30,38 @@ const Index = (props: IndexPageProps) => {
     return items;
   };
 
-  const renderIndexPagePost = edges.map(({ node }) => (
-    <Post.BlogPostCard key={node.id}>
-      <Post.BlogPostLink>
-        <Img
-          fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
-          alt={node.frontmatter.title}
-          className="customImg"
-        />
-        <Post.BlogPostContents>
+  const renderIndexPagePost = edges.map(({ node }, index) => (
+    <Post.BlogPostCard key={node.id} width={index === 0 ? 100 : 50}>
+      <Post.BlogPostContentsBox index={index}>
+        <Post.ImgLink to={node.fields.slug} index={index}>
+          <Img
+            fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
+            alt={node.frontmatter.title}
+            className={index === 0 ? 'customMainImg' : 'customImg'}
+          />
+        </Post.ImgLink>
+        <Post.BlogPostContents index={index}>
           <Post.BlogPostContentsLink to={node.fields.slug}>
-            <Post.BlogPostHero>{node.frontmatter.title}</Post.BlogPostHero>
+            <Post.BlogPostHero index={index}>{node.frontmatter.title}</Post.BlogPostHero>
             <Post.BlogPostDescription>{node.frontmatter.description}</Post.BlogPostDescription>
           </Post.BlogPostContentsLink>
           <Post.BlogPostBottom>
             {renderCategory(node.frontmatter.categories)}
-            <Post.BlogPostDate>{node.frontmatter.date}</Post.BlogPostDate>
+            {index !== 0 ? <Post.BlogPostDate>{node.frontmatter.date}</Post.BlogPostDate> : null}
           </Post.BlogPostBottom>
+          {index === 0 ? <Post.BlogPostDateFirst>{node.frontmatter.date}</Post.BlogPostDateFirst> : null}
         </Post.BlogPostContents>
-      </Post.BlogPostLink>
+      </Post.BlogPostContentsBox>
     </Post.BlogPostCard>
   ));
 
   return (
     <Layout>
-      <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>
+      <Category />
+      <CategoryTitle title={categoryName} />
+      <Post.IndexContainer>
+        <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>
+      </Post.IndexContainer>
     </Layout>
   );
 };

@@ -29,7 +29,7 @@ const CoreFooterWrapper = styled.footer`
 
 const FooterWrapper = styled.div`
   width: 96%;
-  max-width: 900px;
+  max-width: 720px;
   height: 60px;
   margin: 0 auto;
   padding: 5px 0;
@@ -38,7 +38,7 @@ const FooterWrapper = styled.div`
   align-items: center;
 
   @media (min-width: 560px) and (max-width: 959px) {
-    max-width: 900px;
+    max-width: 760px;
   }
 
   @media (max-width: 559px) {

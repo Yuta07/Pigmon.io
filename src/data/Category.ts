@@ -17,4 +17,8 @@ export const CategoryData: Category[] = [
     path: '/category/asobi',
     title: 'Asobi',
   },
+  {
+    path: '/category/others',
+    title: 'Others',
+  },
 ];
