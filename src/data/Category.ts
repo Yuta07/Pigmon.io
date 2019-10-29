@@ -3,7 +3,7 @@ import { Category } from '../types/type';
 export const CategoryData: Category[] = [
   {
     path: '/',
-    title: 'All',
+    title: 'New',
   },
   {
     path: '/category/tech',
@@ -17,8 +17,8 @@ export const CategoryData: Category[] = [
     path: '/category/asobi',
     title: 'Asobi',
   },
-  {
-    path: '/category/others',
-    title: 'Others',
-  },
+  // {
+  //   path: '/category/others',
+  //   title: 'Others',
+  // },
 ];

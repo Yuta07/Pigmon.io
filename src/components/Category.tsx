@@ -35,9 +35,19 @@ const CategoryUnOrderedList = styled.ul`
   display: flex;
   flex-direction: row;
   width: 96%;
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 15px 0;
+  padding: 15px 2%;
+
+  @media (min-width: 560px) and (max-width: 959px) {
+    max-width: 720px;
+    justify-content: center;
+  }
+
+  @media (max-width: 559px) {
+    max-width: 520px;
+    justify-content: center;
+  }
 `;
 
 const CategoryList = styled.li`

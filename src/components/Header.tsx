@@ -35,20 +35,22 @@ const CoreHeaderWrapper = styled.header`
 
 const HeaderWrapper = styled.div`
   width: 96%;
-  max-width: 720px;
-  height: 70px;
+  max-width: 680px;
+  height: 60px;
   margin: 0 auto;
-  padding: 15px 0;
+  padding: 10px 2%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 
   @media (min-width: 560px) and (max-width: 959px) {
     max-width: 720px;
+    justify-content: center;
   }
 
   @media (max-width: 559px) {
     max-width: 520px;
+    justify-content: center;
   }
 `;
 
@@ -60,11 +62,6 @@ const HeaderTitleText = styled.h1`
 const HeaderRootLink = styled(Link)`
   color: #353333;
   text-decoration: none;
-`;
-
-const HeaderRootLinkLogo = styled(HeaderRootLink)`
-  position: absolute;
-  left: 48%;
 `;
 
 export default Header;

@@ -9,11 +9,11 @@ export const CategoryColorFilter = (category: string) => {
       color = colors[1];
       break;
     case 'Asobi':
-      color = colors[2];
-      break;
-    case 'Others':
       color = colors[3];
       break;
+    // case 'Others':
+    //   color = colors[3];
+    //   break;
     default:
       break;
   }

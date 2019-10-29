@@ -17,10 +17,20 @@ body {
 
 .customMainImg {
   width: 100%;
-  height: 240px;
+  height: 260px;
   border-radius: 6px;
   border: 1px solid #dedede;
   box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 559px) {
+  .customMainImg {
+    width: 100%;
+    height: 180px;
+    border-radius: 6px;
+    border: 1px solid #dedede;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+  }
 }
 
 .customImg {
@@ -35,6 +45,15 @@ body {
   width: 100%;
   height: 240px;
   border-radius: 8px 8px 0 0;
+}
+
+@media screen and (max-width: 559px) {
+  .blogImg {
+    width: 100vw;
+    height: 240px;
+    left: calc(-4% - 1px);
+    border-radius: 0;
+  }
 }
 
 .active {

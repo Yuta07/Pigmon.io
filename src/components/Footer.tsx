@@ -1,27 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-// import data
-import { LinkData } from '../data/Link';
 
 const Footer = () => {
-  const renderFooterLink = LinkData.map((link, index) => {
-    return (
-      <FooterLink href={link.link} key={index}>
-        <FooterLinkImage src={link.img} alt={link.name} />
-      </FooterLink>
-    );
-  });
-
   return (
     <CoreFooterWrapper>
       <FooterWrapper>
-        <FooterLinkContainer>{renderFooterLink}</FooterLinkContainer>
         <FooterCopyRight>© {new Date().getFullYear()}, Yutazon - All rights reserved.</FooterCopyRight>
       </FooterWrapper>
     </CoreFooterWrapper>
   );
 };
 
+// Footer style
 const CoreFooterWrapper = styled.footer`
   width: 100%;
   box-shadow: 0px -1px 4px -1px rgba(0, 0, 0, 0.1);
@@ -29,12 +19,12 @@ const CoreFooterWrapper = styled.footer`
 
 const FooterWrapper = styled.div`
   width: 96%;
-  max-width: 720px;
+  max-width: 680px;
   height: 60px;
   margin: 0 auto;
-  padding: 5px 0;
+  padding: 5px 2%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   @media (min-width: 560px) and (max-width: 959px) {
@@ -43,33 +33,17 @@ const FooterWrapper = styled.div`
 
   @media (max-width: 559px) {
     max-width: 520px;
+    flex-direction: column;
   }
-`;
-
-const FooterLinkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-const FooterLink = styled.a`
-  padding: 0 0.5rem;
-  margin-right: 0.5rem;
-  display: block;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-const FooterLinkImage = styled.img`
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
 `;
 
 const FooterCopyRight = styled.div`
   font-size: 0.8rem;
+
+  @media (max-width: 559px) {
+    margin: 1rem 0;
+    flex-direction: column;
+  }
 `;
 
 export default Footer;

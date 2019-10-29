@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import _ from 'lodash';
 import styled from 'styled-components';
 // import components
+import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 // import style
 import { BlogContents } from '../styles/BlogContents';
@@ -48,6 +49,9 @@ const BlogPost = (props: BlogPostProps) => {
           </BlogHeroBottom>
         </BlogStyleHero>
         <BlogContentsContainer dangerouslySetInnerHTML={{ __html: post.html }} />
+        <AuthorBioWrapper>
+          <Bio />
+        </AuthorBioWrapper>
       </BlogStyleWrapper>
     </Layout>
   );
@@ -62,16 +66,18 @@ const BlogContentsContainer = styled.div`
 
 const BlogStyleWrapper = styled.div`
   width: 96%;
-  max-width: 720px;
+  max-width: 680px;
   min-height: 85vh;
-  margin: 20px auto 80px;
+  margin: 20px auto 60px;
+  padding: 0 2%;
 
   @media (min-width: 560px) and (max-width: 959px) {
-    max-width: 720px;
+    max-width: 680px;
   }
 
   @media (max-width: 559px) {
     max-width: 520px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -101,6 +107,12 @@ const BlogHeroTagContainer = styled.div``;
 const BlogPostDate = styled.span`
   display: block;
   color: rgba(0, 0, 0, 0.5);
+`;
+
+const AuthorBioWrapper = styled.div`
+  margin-top: 2.5rem;
+  padding-top: 3.5rem;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
 `;
 
 // graphql settings

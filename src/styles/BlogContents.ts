@@ -4,7 +4,7 @@ export const BlogContents = css`
   display: flex;
   flex-direction: column;
   margin-top: 2.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: medium-content-sans-serif-font, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Arial,
     sans-serif;
   h2,
@@ -12,7 +12,7 @@ export const BlogContents = css`
   h4,
   h5 {
     font-size: 1.6rem;
-    margin: 2.5rem 0 1rem;
+    margin: 2rem 0 1.5rem;
     padding: 0.2rem 0 0.2rem 1rem;
     position: relative;
 
@@ -156,7 +156,6 @@ export const BlogContents = css`
   }
   blockquote {
     padding: 0.4rem 0 0.4rem 1rem;
-    background-color: rgba(218, 218, 218, 0.2);
     margin: 1rem 0;
     border-radius: 0 8px 8px 0;
     position: relative;

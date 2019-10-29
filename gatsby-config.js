@@ -77,7 +77,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Pigmon.io | Yutazonのブログ`,
+        name: `Pigmon | Yutazonのブログ`,
         short_name: `Pigmon.io`,
         start_url: `/`,
         background_color: `#fefefe`,

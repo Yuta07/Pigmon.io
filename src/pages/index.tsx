@@ -4,7 +4,6 @@ import Img from 'gatsby-image';
 import _ from 'lodash';
 // import components
 import Category from '../components/Category';
-import CategoryTitle from '../components/CategoryTitle';
 import Layout from '../components/Layout';
 // import styled
 import * as Post from '../styles/PostIndex';
@@ -15,7 +14,6 @@ import { CategoryColorFilter } from '../utils/Utils';
 
 const Index = (props: IndexPageProps) => {
   const { edges } = props.data.allMarkdownRemark;
-  let categoryName = location.pathname === '/' ? 'All' : location.pathname.split('/')[2];
 
   const renderCategory = (categories: string[]) => {
     let items = [];
@@ -47,9 +45,8 @@ const Index = (props: IndexPageProps) => {
           </Post.BlogPostContentsLink>
           <Post.BlogPostBottom>
             {renderCategory(node.frontmatter.categories)}
-            {index !== 0 ? <Post.BlogPostDate>{node.frontmatter.date}</Post.BlogPostDate> : null}
+            <Post.BlogPostDate index={index}>{node.frontmatter.date}</Post.BlogPostDate>
           </Post.BlogPostBottom>
-          {index === 0 ? <Post.BlogPostDateFirst>{node.frontmatter.date}</Post.BlogPostDateFirst> : null}
         </Post.BlogPostContents>
       </Post.BlogPostContentsBox>
     </Post.BlogPostCard>
@@ -58,7 +55,6 @@ const Index = (props: IndexPageProps) => {
   return (
     <Layout>
       <Category />
-      <CategoryTitle title={categoryName} />
       <Post.IndexContainer>
         <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>
       </Post.IndexContainer>

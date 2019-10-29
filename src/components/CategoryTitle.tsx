@@ -24,9 +24,19 @@ const PageCategoryTitle = styled.h2`
   color: #353333;
   font-size: 1.6rem;
   width: 96%;
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 15px 0;
+  padding: 15px 2%;
+
+  @media (min-width: 560px) and (max-width: 959px) {
+    max-width: 720px;
+    text-align: center;
+  }
+
+  @media (max-width: 559px) {
+    max-width: 520px;
+    text-align: center;
+  }
 `;
 
 export default CategoryTitle;
