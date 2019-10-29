@@ -3,7 +3,8 @@ module.exports = {
     title: `Pigmon.io`,
     author: `Yutaka Miyazaki`,
     description: `A Personal blog by Yutaka Miyazaki.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    url: `https://pigmon.io/`,
+    image: '/Pigmon.png',
     social: {
       twitter: ``,
     },
