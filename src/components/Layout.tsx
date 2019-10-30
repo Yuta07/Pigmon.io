@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import 'typeface-lato';
 import 'normalize.css';
@@ -14,10 +13,6 @@ type LayoutProps = {
 const Layout = (props: LayoutProps) => {
   return (
     <AppBody>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Pigmon.io</title>
-      </Helmet>
       <Header />
       <MainContainer>{props.children}</MainContainer>
       <Footer />

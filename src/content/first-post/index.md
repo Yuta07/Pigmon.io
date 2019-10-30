@@ -3,7 +3,7 @@ title: ブログをはじめるよ
 date: '2019-10-31'
 description: '祝！初ブログ🎉 技術的なアウトプットは大事だけれど、書きたいな〜と思ったらなんでも書いていく。'
 featuredImage: './blog_start.png'
-categories: ['Life', 'Asobi']
+categories: ['Dev', 'Life', 'Asobi']
 ---
 
 ## イントロダクション

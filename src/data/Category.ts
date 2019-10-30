@@ -6,8 +6,8 @@ export const CategoryData: Category[] = [
     title: 'New',
   },
   {
-    path: '/category/tech',
-    title: 'Tech',
+    path: '/category/dev',
+    title: 'Dev',
   },
   {
     path: '/category/life',

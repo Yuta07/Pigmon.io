@@ -6,6 +6,7 @@ import styled from 'styled-components';
 // import components
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 // import style
 import { BlogContents } from '../styles/BlogContents';
 import { BlogHighlights } from '../styles/BlogHighlights';
@@ -34,6 +35,7 @@ const BlogPost = (props: BlogPostProps) => {
 
   return (
     <Layout>
+      <Seo title={post.frontmatter.title} description={post.frontmatter.description} />
       <BlogStyleWrapper>
         <BlogStyleHero>
           <Img

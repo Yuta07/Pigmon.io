@@ -3,25 +3,23 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 // import components
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/Seo';
 // import assets
 import NotFound from '../assets/not-found.svg';
 
-class NotFoundPage extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <SEO title="404: Not Found" />
-        <NotFoundWrapper>
-          <NotFoundHero>Not Found</NotFoundHero>
-          <NotFoundImage src={NotFound} alt="NotFound" />
-          <NotFoundSadness>You just hit a route that doesn&#39;t exist... the sadness.</NotFoundSadness>
-          <RedirectHome to="/">Home</RedirectHome>
-        </NotFoundWrapper>
-      </Layout>
-    );
-  }
-}
+const NotFoundPage = () => {
+  return (
+    <Layout>
+      <Seo title="404: Not Found" />
+      <NotFoundWrapper>
+        <NotFoundHero>Not Found</NotFoundHero>
+        <NotFoundImage src={NotFound} alt="NotFound" />
+        <NotFoundSadness>You just hit a route that doesn&#39;t exist... the sadness.</NotFoundSadness>
+        <RedirectHome to="/">Home</RedirectHome>
+      </NotFoundWrapper>
+    </Layout>
+  );
+};
 
 // 404 style
 const NotFoundWrapper = styled.div`

@@ -2,11 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `Pigmon.io`,
     author: `Yutaka Miyazaki`,
-    description: `A Personal blog by Yutaka Miyazaki.`,
-    url: `https://pigmon.io/`,
-    image: '/Pigmon.png',
+    description: `A Personal blog by Yutazon.`,
+    siteUrl: `https://pigmon.io/`,
+    image: `/Pigmon.png`,
     social: {
-      twitter: ``,
+      twitter: `yutazon7`,
     },
   },
   plugins: [
@@ -78,7 +78,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Pigmon | Yutazonのブログ`,
+        name: `Pigmon.io | Yutazon's room`,
         short_name: `Pigmon.io`,
         start_url: `/`,
         background_color: `#fefefe`,

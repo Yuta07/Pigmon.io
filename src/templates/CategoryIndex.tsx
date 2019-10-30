@@ -5,6 +5,7 @@ import _ from 'lodash';
 // import components
 import Category from '../components/Category';
 import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 // import styled
 import * as Post from '../styles/PostIndex';
 // import type
@@ -52,8 +53,12 @@ const CategoryIndex = (props: IndexPageProps) => {
     </Post.BlogPostCard>
   ));
 
+  const path = location.pathname.split('/')[2];
+  const categoryName = _.upperFirst(path);
+
   return (
     <Layout>
+      <Seo title={categoryName} />
       <Category />
       <Post.IndexContainer>
         <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>
