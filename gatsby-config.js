@@ -17,8 +17,6 @@ module.exports = {
         path: `${__dirname}/src/content`,
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -87,12 +85,14 @@ module.exports = {
         icon: `static/pigmon.png`,
       },
     },
-    `gatsby-plugin-feed`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-styled-components`,
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-twitter`,
+    `gatsby-plugin-typescript`,
   ],
 };

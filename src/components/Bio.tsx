@@ -22,7 +22,7 @@ const Bio = () => {
       </BioAuthrContainer>
       <BioDescription>
         Web Developer 🎉
-        自称フロントエンドエンジニアです。SaaSの開発をしたり、Webサービスを作成したりしています。地球上の幸福度を高めていきたい。
+        自称フロントエンドエンジニア。SaaSの開発をしたり、Webサービスを作成したりしているよ。地球上の幸福度を高めていきたい。
       </BioDescription>
       <BioLinkContents>{renderExternalLink}</BioLinkContents>
     </CoreBioWrapper>
@@ -34,11 +34,12 @@ const CoreBioWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 300px;
-  height: 240px;
+  width: 340px;
+  height: 270px;
   margin: 0 0 0 auto;
-  padding: 1rem 1rem;
+  padding: 1.5rem 2rem;
   border-radius: 4px;
+  background-color: #f4fafa;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 559px) {
@@ -70,7 +71,7 @@ const BioAuthor = styled.h3`
 
 const BioDescription = styled.p`
   margin: 1rem 0 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 `;
 
 const BioLinkContents = styled.div`

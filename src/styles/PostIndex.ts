@@ -136,7 +136,7 @@ export const BlogPostTag = styled(Link)<{ color: string }>`
   border-radius: 8px;
   padding: 2px 0.5rem;
   margin-right: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-decoration: none;
 
   &:hover {

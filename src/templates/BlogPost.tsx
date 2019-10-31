@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
+import Share from '../components/Share';
 // import style
 import { BlogContents } from '../styles/BlogContents';
 import { BlogHighlights } from '../styles/BlogHighlights';
@@ -51,6 +52,7 @@ const BlogPost = (props: BlogPostProps) => {
           </BlogHeroBottom>
         </BlogStyleHero>
         <BlogContentsContainer dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Share url={location.pathname} title={post.frontmatter.title} />
         <AuthorBioWrapper>
           <Bio />
         </AuthorBioWrapper>
@@ -112,9 +114,9 @@ const BlogPostDate = styled.span`
 `;
 
 const AuthorBioWrapper = styled.div`
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   padding-top: 3.5rem;
-  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  border-top: 2px dashed rgba(0, 0, 0, 0.2);
 `;
 
 // graphql settings
