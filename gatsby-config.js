@@ -88,6 +88,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
     },
+    `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
