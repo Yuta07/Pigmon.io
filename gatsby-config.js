@@ -89,11 +89,12 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
     },
     `gatsby-plugin-feed`,
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-twitter`,
     `gatsby-plugin-typescript`,
+    `gatsby-transformer-sharp`,
   ],
 };
