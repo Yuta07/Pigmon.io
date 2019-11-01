@@ -82,7 +82,7 @@ module.exports = {
         background_color: `#fefefe`,
         theme_color: `#353333`,
         display: `standalone`,
-        icon: `static/pigmon.png`,
+        icon: `src/assets/Pigmon.png`,
       },
     },
     {
