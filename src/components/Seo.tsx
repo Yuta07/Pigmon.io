@@ -12,7 +12,7 @@ interface SEOProps {
 const Seo = ({ description, lang = 'ja', meta, title }: SEOProps) => {
   return (
     <StaticQuery
-      query={query}
+      query={seoQuery}
       render={data => {
         const metaDescription = description || data.site.siteMetadata.description;
         const defaultTitle = "Pigmon.io | Yutazon's room";
@@ -65,7 +65,7 @@ const Seo = ({ description, lang = 'ja', meta, title }: SEOProps) => {
   );
 };
 
-const query = graphql`
+const seoQuery = graphql`
   query SEOQuery {
     site {
       siteMetadata {
