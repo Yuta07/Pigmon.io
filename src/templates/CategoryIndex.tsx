@@ -54,11 +54,11 @@ const CategoryIndex = (props: IndexPageProps) => {
   ));
 
   const path = location.pathname.split('/')[2];
-  const categoryName = _.upperFirst(path);
+  const blogTitle = _.upperFirst(path);
 
   return (
     <Layout>
-      <Seo title={categoryName} />
+      <Seo title={blogTitle} />
       <Category />
       <Post.IndexContainer>
         <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>
