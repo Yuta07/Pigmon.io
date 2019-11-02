@@ -50,7 +50,7 @@ const BlogPost = (props: BlogPostProps) => {
           </BlogHeroBottom>
         </BlogStyleHero>
         <BlogContentsContainer dangerouslySetInnerHTML={{ __html: post.html }} />
-        <Share url={location.pathname} title={post.frontmatter.title} />
+        <Share slug={props.pageContext.slug} title={post.frontmatter.title} />
         <AuthorBioWrapper>
           <Bio />
         </AuthorBioWrapper>

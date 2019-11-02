@@ -59,6 +59,9 @@ export interface IndexPageProps {
 }
 
 export interface BlogPostProps {
+  pageContext: {
+    slug: string;
+  };
   data: {
     markdownRemark: {
       html: string;
