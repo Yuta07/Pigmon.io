@@ -3,14 +3,14 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 // import components
 import Layout from '../components/Layout';
-import Seo from '../components/Seo';
+import SEO from '../components/SEO';
 // import assets
 import NotFound from '../assets/not-found.svg';
 
 const NotFoundPage = () => {
   return (
     <Layout>
-      <Seo title="404: Not Found" />
+      <SEO title="404: Not Found" />
       <NotFoundWrapper>
         <NotFoundHero>Not Found</NotFoundHero>
         <NotFoundImage src={NotFound} alt="NotFound" />

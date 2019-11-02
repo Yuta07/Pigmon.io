@@ -17,7 +17,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  // createRedirect({
+  //   fromPath: 'https://gatsby-starter-portfolio-nnn.netlify.com/*',
+  //   toPath: 'https://gatsby-starter-portfolio.nakamu.life/:splat',
+  //   isPermanent: true,
+  //   force: true
+  // })
 
   // create blog with tamplate
   const blogPost = path.resolve(`./src/templates/BlogPost.tsx`);
