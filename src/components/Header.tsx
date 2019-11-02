@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Header = () => {
   const data = useStaticQuery(
     graphql`
-      query {
+      query HeaderQuery {
         site {
           siteMetadata {
             title
