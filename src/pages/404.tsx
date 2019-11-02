@@ -10,7 +10,7 @@ import NotFound from '../assets/not-found.svg';
 const NotFoundPage = () => {
   return (
     <Layout>
-      <SEO title="404: Not Found" />
+      <SEO title="404: Not Found" meta={[]} />
       <NotFoundWrapper>
         <NotFoundHero>Not Found</NotFoundHero>
         <NotFoundImage src={NotFound} alt="NotFound" />
