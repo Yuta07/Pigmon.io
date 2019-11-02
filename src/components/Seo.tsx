@@ -10,7 +10,7 @@ type SEOProps = {
 };
 
 const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
-  const { site } = useStaticQuery(
+  const data = useStaticQuery(
     graphql`
       query {
         site {
@@ -18,14 +18,13 @@ const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
             title
             author
             description
-            siteUrl
           }
         }
       }
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || data.site.siteMetadata.description;
   const defaultTitle = "Pigmon.io | Yutazon's room";
 
   return (
@@ -35,7 +34,7 @@ const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
       }}
       defaultTitle={defaultTitle}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -59,7 +58,7 @@ const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: data.site.siteMetadata.author,
         },
         {
           name: `twitter:title`,
