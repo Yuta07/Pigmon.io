@@ -6,7 +6,7 @@ import styled from 'styled-components';
 // import components
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+// import SEO from '../components/SEO';
 import Share from '../components/Share';
 // import style
 import { BlogContents } from '../styles/BlogContents';
@@ -36,7 +36,7 @@ const BlogPost = (props: BlogPostProps) => {
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.frontmatter.description} meta={[]} />
+      {/* <SEO title={post.frontmatter.title} description={post.frontmatter.description} meta={[]} /> */}
       <BlogStyleWrapper>
         <BlogStyleHero>
           <Img
