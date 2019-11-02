@@ -5,7 +5,6 @@ import _ from 'lodash';
 // import components
 import Category from '../components/Category';
 import Layout from '../components/Layout';
-import Seo from '../components/Seo';
 // import styled
 import * as Post from '../styles/PostIndex';
 // import type
@@ -55,7 +54,6 @@ const Index = (props: IndexPageProps) => {
 
   return (
     <Layout>
-      <Seo title="" />
       <Category />
       <Post.IndexContainer>
         <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>

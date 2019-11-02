@@ -5,11 +5,11 @@ import TwitterImg from '../assets/shares/twitter.svg';
 
 type ShareProps = {
   title: string;
-  url: string;
+  slug: string;
 };
 
-const Share = ({ title, url }: ShareProps) => {
-  const siteUrl = `https://Pigmon.io${url}`;
+const Share = ({ title, slug }: ShareProps) => {
+  const siteUrl = `https://Pigmon.io${slug}`;
   const twitterUrl: string = `https://twitter.com/intent/tweet?url=${siteUrl}&text=${title}&via=yutazon7`;
 
   return (

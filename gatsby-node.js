@@ -17,7 +17,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  createRedirect({
+    fromPath: 'https://blissful-davinci-c3c9c7.netlify.com/*',
+    toPath: 'https://pigmon.io/:splat',
+    isPermanent: true,
+    force: true,
+  });
 
   // create blog with tamplate
   const blogPost = path.resolve(`./src/templates/BlogPost.tsx`);
