@@ -20,7 +20,7 @@ const CategoryIndex = (props: IndexPageProps) => {
     for (let i = 0; i < categories.length; i++) {
       let color = CategoryColorFilter(categories[i]);
       items.push(
-        <Post.BlogPostTag color={color} key={categories[i]} to={`/category/${_.lowerCase(categories[i])}`}>
+        <Post.BlogPostTag color={color} key={categories[i]}>
           {categories[i]}
         </Post.BlogPostTag>
       );
@@ -29,26 +29,46 @@ const CategoryIndex = (props: IndexPageProps) => {
   };
 
   const renderIndexPagePost = edges.map(({ node }, index) => (
-    <Post.BlogPostCard key={node.id} width={index === 0 ? 100 : 50}>
-      <Post.BlogPostContentsBox index={index}>
-        <Post.ImgLink to={node.fields.slug} index={index}>
-          <Img
-            fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
-            alt={node.frontmatter.title}
-            className={index === 0 ? 'customMainImg' : 'customImg'}
-          />
-        </Post.ImgLink>
-        <Post.BlogPostContents index={index}>
-          <Post.BlogPostContentsLink to={node.fields.slug}>
-            <Post.BlogPostHero index={index}>{node.frontmatter.title}</Post.BlogPostHero>
-            <Post.BlogPostDescription>{node.frontmatter.description}</Post.BlogPostDescription>
-          </Post.BlogPostContentsLink>
-          <Post.BlogPostBottom>
-            {renderCategory(node.frontmatter.categories)}
-            <Post.BlogPostDate index={index}>{node.frontmatter.date}</Post.BlogPostDate>
-          </Post.BlogPostBottom>
-        </Post.BlogPostContents>
-      </Post.BlogPostContentsBox>
+    <Post.BlogPostCard key={node.id}>
+      {index === 0 ? (
+        <Post.NewestPostLink to={node.fields.slug}>
+          <Post.NewestImageWrapper>
+            <Img
+              fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
+              alt={node.frontmatter.title}
+              className="customMainImg"
+            />
+          </Post.NewestImageWrapper>
+          <Post.NewestContents>
+            <Post.NewestBlogPostHero>{node.frontmatter.title}</Post.NewestBlogPostHero>
+            <Post.NewestBlogPostDescription>{node.frontmatter.excerpt}</Post.NewestBlogPostDescription>
+            <Post.NewestBlogPostBottom>
+              {renderCategory(node.frontmatter.categories)}
+              <Post.NewestBlogPostDate>{node.frontmatter.date}</Post.NewestBlogPostDate>
+            </Post.NewestBlogPostBottom>
+          </Post.NewestContents>
+        </Post.NewestPostLink>
+      ) : (
+        <Post.LaterPostLink to={node.fields.slug}>
+          <Post.LaterImageWrapper>
+            <Img
+              fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
+              alt={node.frontmatter.title}
+              className="customImg"
+            />
+          </Post.LaterImageWrapper>
+          <Post.LaterContents>
+            <Post.LaterBlogPostTop>
+              <Post.LaterBlogPostHero>{node.frontmatter.title}</Post.LaterBlogPostHero>
+              <Post.LaterBlogPostDescription>{node.frontmatter.excerpt}</Post.LaterBlogPostDescription>
+            </Post.LaterBlogPostTop>
+            <Post.LaterBlogPostBottom>
+              {renderCategory(node.frontmatter.categories)}
+              <Post.LaterBlogPostDate>{node.frontmatter.date}</Post.LaterBlogPostDate>
+            </Post.LaterBlogPostBottom>
+          </Post.LaterContents>
+        </Post.LaterPostLink>
+      )}
     </Post.BlogPostCard>
   ));
 
@@ -76,7 +96,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
-            description
+            excerpt
             categories
             featuredImage {
               childImageSharp {

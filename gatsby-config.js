@@ -78,6 +78,8 @@ module.exports = {
       options: {
         name: `Pigmon.io | Yutazon's room`,
         short_name: `Pigmon.io`,
+        description: `Personal blog by Yutazon`,
+        lang: `jp`,
         start_url: `/`,
         background_color: `#fefefe`,
         theme_color: `#353333`,

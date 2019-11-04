@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import data
 import { LinkData } from '../data/Link';
 // import assets
-import Yuta07 from '../assets/Yuta07.png';
+import Yutazon from '../assets/Yutazon.png';
 
 const Bio = () => {
   const renderExternalLink = LinkData.map((link, index) => {
@@ -17,7 +17,7 @@ const Bio = () => {
   return (
     <CoreBioWrapper>
       <BioAuthrContainer>
-        <BioImage src={Yuta07} alt="yutazon" />
+        <BioImage src={Yutazon} alt="yutazon" />
         <BioAuthor>Yutazon</BioAuthor>
       </BioAuthrContainer>
       <BioDescription>
@@ -39,7 +39,7 @@ const CoreBioWrapper = styled.div`
   margin: 0 0 0 auto;
   padding: 1.5rem 2rem;
   border-radius: 4px;
-  background-color: #f4fafa;
+  background-color: #fefefe;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 559px) {

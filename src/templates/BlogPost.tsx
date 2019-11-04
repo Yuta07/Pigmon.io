@@ -25,7 +25,7 @@ const BlogPost = (props: BlogPostProps) => {
     for (let i = 0; i < categories.length; i++) {
       let color = CategoryColorFilter(categories[i]);
       items.push(
-        <Post.BlogPostTag color={color} key={categories[i]} to={`/category/${_.lowerCase(categories[i])}`}>
+        <Post.BlogPostTag color={color} key={categories[i]}>
           {categories[i]}
         </Post.BlogPostTag>
       );
@@ -43,7 +43,7 @@ const BlogPost = (props: BlogPostProps) => {
             className="blogImg"
           />
           <BlogTitle>{post.frontmatter.title}</BlogTitle>
-          <BlogDescription>{post.frontmatter.description}</BlogDescription>
+          <BlogDescription>{post.frontmatter.excerpt}</BlogDescription>
           <BlogHeroBottom>
             <BlogHeroTagContainer>{renderCategory(post.frontmatter.categories)}</BlogHeroTagContainer>
             <BlogPostDate>{post.frontmatter.date}</BlogPostDate>
@@ -68,13 +68,13 @@ const BlogContentsContainer = styled.div`
 
 const BlogStyleWrapper = styled.div`
   width: 96%;
-  max-width: 680px;
+  max-width: 620px;
   min-height: 85vh;
   margin: 20px auto 60px;
   padding: 0 2%;
 
   @media (min-width: 560px) and (max-width: 959px) {
-    max-width: 680px;
+    max-width: 620px;
   }
 
   @media (max-width: 559px) {
@@ -124,7 +124,7 @@ export const query = graphql`
       html
       frontmatter {
         title
-        description
+        excerpt
         date(formatString: "DD MMMM, YYYY")
         categories
         featuredImage {
