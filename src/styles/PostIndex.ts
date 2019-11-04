@@ -68,6 +68,7 @@ export const NewestPostLink = styled(Link)`
   &:hover {
     transition: 0.2s;
     background-color: rgb(243, 243, 243);
+    border-radius: 0 0 8px 8px;
   }
 
   @media (max-width: 559px) {
@@ -83,12 +84,14 @@ export const NewestImageWrapper = styled.div`
 `;
 
 export const NewestContents = styled.div`
+  padding: 0 0.5rem;
+
   @media (max-width: 559px) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: calc(100% - 120px);
-    padding-left: 1.5rem;
+    padding: 0 0 0 1.5rem;
   }
 `;
 
