@@ -35,7 +35,7 @@ const CoreHeaderWrapper = styled.header`
 
 const HeaderWrapper = styled.div`
   width: 96%;
-  max-width: 680px;
+  max-width: 620px;
   height: 60px;
   margin: 0 auto;
   padding: 10px 2%;
@@ -44,7 +44,7 @@ const HeaderWrapper = styled.div`
   align-items: center;
 
   @media (min-width: 560px) and (max-width: 959px) {
-    max-width: 720px;
+    max-width: 620px;
     justify-content: center;
   }
 

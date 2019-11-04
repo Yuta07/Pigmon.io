@@ -44,7 +44,7 @@ export interface IndexPageProps {
             frontmatter: {
               title: string;
               date: string;
-              description: string;
+              excerpt: string;
               categories: string[];
               featuredImage: childImageSharp;
             };
@@ -68,7 +68,7 @@ export interface BlogPostProps {
       id: string;
       frontmatter: {
         title: string;
-        description: string;
+        excerpt: string;
         date: string;
         categories: string[];
         featuredImage: childImageSharp;

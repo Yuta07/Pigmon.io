@@ -1,7 +1,7 @@
 ---
 title: ブログをはじめるよ
-date: '2019-10-31'
-description: '祝！初ブログ🎉'
+date: '2019-11-03'
+excerpt: '祝！初ブログ🎉'
 featuredImage: './blog_start.png'
 categories: ['Dev', 'Life', 'Asobi']
 ---
@@ -22,7 +22,7 @@ categories: ['Dev', 'Life', 'Asobi']
 
 ## ブログのデザインについて
 
-デザインに自信があるというわけでもないので、 [Airbnb Engineering & Data Science](https://medium.com/airbnb-engineering) を参考にさせていただいた。
+デザインに自信があるというわけでもないので、 ブログや記事を掲載しているサイトをかなり参考にさせていただいた。おかげさまで見やすいものができた気がしている。
 
 まだまだ改良点は多いので随時対応していきたい所存である。
 

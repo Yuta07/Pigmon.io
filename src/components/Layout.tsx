@@ -25,7 +25,7 @@ const AppBody = styled.div`
   width: 100%;
   min-height: 100vh;
   color: #353333;
-  background-color: #fefefe;
+  background-color: #fbfbfb;
 `;
 
 const MainContainer = styled.div`
