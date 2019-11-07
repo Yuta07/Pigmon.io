@@ -27,7 +27,6 @@ const CategoryWrapper = styled.nav`
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #fefefe;
   box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
 `;
 
@@ -63,6 +62,7 @@ const CategoryList = styled.li`
 
   @media (max-width: 559px) {
     font-size: 1rem;
+    padding: 0 0.5rem;
   }
 `;
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>light</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="light" fill-rule="nonzero" fill="#F1F536">
+            <ellipse id="Oval" cx="256" cy="256" rx="137.275" ry="137.28"></ellipse>
+            <rect id="Rectangle-path" x="241.16" y="0" width="29.68" height="81.62"></rect>
+            <rect id="Rectangle-path" x="241.16" y="430.38" width="29.68" height="81.62"></rect>
+            <polygon id="Shape" points="181.665 97.56 140.855 26.88 115.15 41.72 155.96 112.41"></polygon>
+            <rect id="Rectangle-path" transform="translate(363.587734, 442.340776) rotate(-120.005690) translate(-363.587734, -442.340776) " x="322.777591" y="427.50186" width="81.6202857" height="29.6778311"></rect>
+            <polygon id="Shape" points="26.88 140.85 97.565 181.66 112.41 155.96 41.72 115.15"></polygon>
+            <polygon id="Shape" points="399.594 356.04 470.285 396.85 485.125 371.15 414.435 330.34"></polygon>
+            <rect id="Rectangle-path" x="0" y="241.16" width="81.625" height="29.68"></rect>
+            <rect id="Rectangle-path" x="430.375" y="241.16" width="81.625" height="29.68"></rect>
+            <polygon id="Shape" points="26.88 371.14 41.72 396.85 112.406 356.04 97.565 330.33"></polygon>
+            <polygon id="Shape" points="485.125 140.85 470.285 115.15 399.594 155.96 414.435 181.66"></polygon>
+            <rect id="Rectangle-path" transform="translate(148.426138, 442.369770) rotate(-149.999272) translate(-148.426138, -442.369770) " x="133.585465" y="401.558668" width="29.681347" height="81.6222043"></rect>
+            <polygon id="Shape" points="330.335 97.56 356.04 112.41 396.85 41.72 371.15 26.88"></polygon>
+        </g>
+    </g>
+</svg>

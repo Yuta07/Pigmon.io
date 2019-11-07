@@ -1,8 +1,15 @@
 import React from 'react';
 import { useStaticQuery, Link, graphql } from 'gatsby';
 import styled from 'styled-components';
+// import components
+import Switch from './Switch';
 
-const Header = () => {
+type HeaderProps = {
+  switchState: boolean;
+  switchToggleStateClick: () => void;
+};
+
+const Header = (props: HeaderProps) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -21,6 +28,7 @@ const Header = () => {
         <HeaderRootLink to="/">
           <HeaderTitleText>{data.site.siteMetadata.title}</HeaderTitleText>
         </HeaderRootLink>
+        <Switch switchState={props.switchState} switchToggleStateClick={props.switchToggleStateClick} />
       </HeaderWrapper>
     </CoreHeaderWrapper>
   );
@@ -40,17 +48,15 @@ const HeaderWrapper = styled.div`
   margin: 0 auto;
   padding: 10px 2%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   @media (min-width: 560px) and (max-width: 959px) {
     max-width: 620px;
-    justify-content: center;
   }
 
   @media (max-width: 559px) {
     max-width: 520px;
-    justify-content: center;
   }
 `;
 
