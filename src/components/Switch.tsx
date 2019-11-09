@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 // import assets
 import Light from '../assets/light.svg';
 import Dark from '../assets/dark.svg';
+// import context
+import { ThemeContext } from './ThemeContext';
+// import style
+import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
 type SwitchProps = {
-  switchState: boolean;
   switchToggleStateClick: () => void;
 };
 
 const Switch = (props: SwitchProps) => {
+  const value = useContext(ThemeContext);
+
   return (
     <ToggleSwitch onClick={props.switchToggleStateClick}>
       <DarkImg src={Dark} alt="dark-mode" />
       <LightImg src={Light} alt="light-mode" />
-      <ToggleBall switch={props.switchState} />
+      <ToggleBall theme={value} />
     </ToggleSwitch>
   );
 };
@@ -56,7 +61,7 @@ const DarkImg = styled.img`
   height: auto;
 `;
 
-const ToggleBall = styled.div<{ switch: boolean }>`
+const ToggleBall = styled.div<{ theme: string }>`
   position: absolute;
   top: 1px;
   left: 1px;
@@ -65,7 +70,7 @@ const ToggleBall = styled.div<{ switch: boolean }>`
   border-radius: 50%;
   background-color: #fefefe;
   transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1) 0ms;
-  transform: ${props => (props.switch ? 'translateX(36px)' : 'translateX(0)')};
+  transform: ${props => (props.theme === 'light' ? 'translateX(0)' : 'translateX(36px)')};
 `;
 
 export default Switch;

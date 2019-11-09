@@ -67,11 +67,6 @@ export const NewestPostLink = styled(Link)`
   border-radius: 8px;
   text-decoration: none;
 
-  &:hover {
-    transition: 0.2s;
-    background-color: rgb(243, 243, 243);
-  }
-
   @media (max-width: 559px) {
     flex-direction: row;
   }

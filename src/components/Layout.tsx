@@ -1,10 +1,12 @@
-import React, { ReactNode, Fragment, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import 'typeface-lato';
 import 'normalize.css';
 // import components
 import Footer from './Footer';
 import Header from './Header';
+// import context
+import { ThemeContext } from './ThemeContext';
 // import style
 import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
@@ -12,30 +14,36 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-const INITIAL_MODE = localStorage.getItem('theme');
+type Theme = 'light' | 'dark';
+const INITIAL_THEME: Theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 
 const Layout = (props: LayoutProps) => {
-  const [switchState, setSwitchState] = useState(INITIAL_MODE === 'dark' ? true : false);
+  const [switchTheme, setSwitchTheme] = useState<Theme>(INITIAL_THEME);
 
-  const SwitchToggleStateClick = () => {
-    setSwitchState(!switchState);
-    localStorage.setItem('theme', switchState ? 'dark' : 'light');
+  const switchToggleThemeClick = () => {
+    if (switchTheme === 'dark') {
+      setSwitchTheme('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      setSwitchTheme('dark');
+      localStorage.setItem('theme', 'dark');
+    }
   };
 
   return (
-    <Fragment>
-      <GlobalStyle theme={switchState} />
+    <ThemeContext.Provider value={switchTheme}>
+      <GlobalStyle theme={switchTheme} />
       <AppBody>
-        <Header switchState={switchState} switchToggleStateClick={SwitchToggleStateClick} />
+        <Header switchToggleStateClick={switchToggleThemeClick} />
         <MainContainer>{props.children}</MainContainer>
         <Footer />
       </AppBody>
-    </Fragment>
+    </ThemeContext.Provider>
   );
 };
 
 // Global style
-const GlobalStyle = createGlobalStyle<{ theme: boolean }>`
+const GlobalStyle = createGlobalStyle<{ theme: string }>`
   * {
     box-sizing: border-box;
   }
@@ -51,8 +59,8 @@ const GlobalStyle = createGlobalStyle<{ theme: boolean }>`
     line-height: 1.6;
     word-wrap: break-word;
     font-kerning: normal;
-    color: ${props => (props.theme ? DARK_MODE.TEXT : LIGHT_MODE.TEXT)};
-    background-color: ${props => (props.theme ? DARK_MODE.BACKGROUND : LIGHT_MODE.BACKGROUND)};
+    color: ${props => (props.theme === 'dark' ? DARK_MODE.text : LIGHT_MODE.text)};
+    background-color: ${props => (props.theme === 'dark' ? DARK_MODE.background : LIGHT_MODE.background)};
     transition: all 0.25s linear;
   }
 `;

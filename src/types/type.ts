@@ -5,10 +5,17 @@ export type Link = {
   name: string;
 };
 
-// nav type
+// category type
 export type Category = {
   path: string;
   title: string;
+};
+
+// theme type
+export type AppTheme = {
+  text: string;
+  background: string;
+  hover: string;
 };
 
 // IndexImage type

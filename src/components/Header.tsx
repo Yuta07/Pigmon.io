@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStaticQuery, Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 // import components
 import Switch from './Switch';
+// import context
+import { ThemeContext } from './ThemeContext';
+// import style
+import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
 type HeaderProps = {
-  switchState: boolean;
   switchToggleStateClick: () => void;
 };
 
@@ -22,13 +25,15 @@ const Header = (props: HeaderProps) => {
     `
   );
 
+  const value = useContext(ThemeContext);
+
   return (
     <CoreHeaderWrapper>
       <HeaderWrapper>
-        <HeaderRootLink to="/">
+        <HeaderRootLink to="/" theme={value}>
           <HeaderTitleText>{data.site.siteMetadata.title}</HeaderTitleText>
         </HeaderRootLink>
-        <Switch switchState={props.switchState} switchToggleStateClick={props.switchToggleStateClick} />
+        <Switch switchToggleStateClick={props.switchToggleStateClick} />
       </HeaderWrapper>
     </CoreHeaderWrapper>
   );
@@ -65,8 +70,8 @@ const HeaderTitleText = styled.h1`
   margin: 0;
 `;
 
-const HeaderRootLink = styled(Link)`
-  color: #353333;
+const HeaderRootLink = styled(Link)<{ theme: string }>`
+  color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
   text-decoration: none;
 `;
 
