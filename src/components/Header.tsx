@@ -45,7 +45,6 @@ const CoreHeaderWrapper = styled.header<{ theme: string }>`
   position: relative;
   border-bottom: ${props => (props.theme === 'light' ? '1px solid #dedede' : null)};
   box-shadow: ${props => (props.theme === 'light' ? null : '0 0 2px 1px rgba(255, 255, 255, 0.1)')};
-  transition: all 0.25s linear;
 `;
 
 const HeaderWrapper = styled.div`

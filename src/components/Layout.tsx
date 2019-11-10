@@ -17,8 +17,12 @@ type LayoutProps = {
 type Theme = 'light' | 'dark';
 
 const Layout = (props: LayoutProps) => {
-  const windowGlobal: any = typeof window !== 'undefined' && window;
-  const localTheme = windowGlobal.localStorage.theme;
+  let localTheme: Theme;
+  if (typeof localStorage !== 'undefined') {
+    localTheme = window.localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+  } else {
+    localTheme = 'light';
+  }
   const [switchTheme, setSwitchTheme] = useState<Theme>(localTheme);
 
   const switchToggleThemeClick = () => {
@@ -62,7 +66,6 @@ const GlobalStyle = createGlobalStyle<{ theme: string }>`
     font-kerning: normal;
     color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
     background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background)};
-    transition: all 0.25s linear;
   }
 
   h1, h1, h3, h4, h5, p, a {

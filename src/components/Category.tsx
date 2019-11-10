@@ -36,7 +36,6 @@ const CategoryWrapper = styled.nav<{ theme: string }>`
   background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background)};
   box-shadow: ${props =>
     props.theme === 'light' ? '0px 1px 0px 1px rgba(0, 0, 0, 0.1)' : '0px 1px 6px 1px rgba(0, 0, 0, 0.2)'};
-  transition: all 0.25s linear;
 `;
 
 const CategoryUnOrderedList = styled.ul`
