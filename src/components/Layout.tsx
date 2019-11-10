@@ -17,7 +17,8 @@ type LayoutProps = {
 type Theme = 'light' | 'dark';
 
 const Layout = (props: LayoutProps) => {
-  const localTheme = window.localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+  const windowGlobal: any = typeof window !== 'undefined' && window;
+  const localTheme = windowGlobal.localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
   const [switchTheme, setSwitchTheme] = useState<Theme>(localTheme);
 
   const switchToggleThemeClick = () => {
