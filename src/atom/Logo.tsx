@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 // import assets
-import PigmonLogo from '../assets/Pigmon.svg';
+import PigmonLogo from '../assets/pigmon.svg';
 
 type LogoProps = {
   width: number;
