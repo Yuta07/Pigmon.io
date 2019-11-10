@@ -4,7 +4,7 @@ module.exports = {
     author: `Yutaka Miyazaki`,
     description: `A Personal blog by Yutazon.`,
     siteUrl: `https://pigmon.io/`,
-    image: `/Pigmon.png`,
+    image: `/src/assets/pigmon.png`,
     social: {
       twitter: `yutazon7`,
     },
@@ -70,13 +70,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-151895912-1`,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Pigmon.io | Yutazon's room`,
+        name: `Pigmon.io | Yutazon's blog`,
         short_name: `Pigmon.io`,
         description: `Personal blog by Yutazon`,
         lang: `jp`,
@@ -84,7 +84,7 @@ module.exports = {
         background_color: `#fefefe`,
         theme_color: `#353333`,
         display: `standalone`,
-        icon: `src/assets/Pigmon.png`,
+        icon: `src/assets/pigmon.png`,
       },
     },
     {
