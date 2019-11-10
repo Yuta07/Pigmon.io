@@ -15,10 +15,9 @@ type LayoutProps = {
 };
 
 type Theme = 'light' | 'dark';
-const INITIAL_THEME: Theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 
 const Layout = (props: LayoutProps) => {
-  const [switchTheme, setSwitchTheme] = useState<Theme>(INITIAL_THEME);
+  const [switchTheme, setSwitchTheme] = useState<Theme>(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
 
   const switchToggleThemeClick = () => {
     if (switchTheme === 'dark') {
@@ -59,9 +58,19 @@ const GlobalStyle = createGlobalStyle<{ theme: string }>`
     line-height: 1.6;
     word-wrap: break-word;
     font-kerning: normal;
-    color: ${props => (props.theme === 'dark' ? DARK_MODE.text : LIGHT_MODE.text)};
-    background-color: ${props => (props.theme === 'dark' ? DARK_MODE.background : LIGHT_MODE.background)};
+    color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
+    background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background)};
     transition: all 0.25s linear;
+  }
+
+  h1, h1, h3, h4, h5, p, a {
+    color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
+  }
+
+  a {
+    &:hover {
+      background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.hover : DARK_MODE.hover)};
+    }
   }
 `;
 

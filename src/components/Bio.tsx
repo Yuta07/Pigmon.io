@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 // import data
 import { LinkData } from '../data/Link';
 // import assets
 import Yutazon from '../assets/Yutazon.png';
+// import context
+import { ThemeContext } from './ThemeContext';
+// import style
+import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
 const Bio = () => {
+  const value = useContext(ThemeContext);
+
   const renderExternalLink = LinkData.map((link, index) => {
     return (
       <YutazonExternalLink href={link.link} key={index}>
@@ -15,7 +21,7 @@ const Bio = () => {
   });
 
   return (
-    <CoreBioWrapper>
+    <CoreBioWrapper theme={value}>
       <BioAuthrContainer>
         <BioImage src={Yutazon} alt="yutazon" />
         <BioAuthor>Yutazon</BioAuthor>
@@ -30,7 +36,7 @@ const Bio = () => {
 };
 
 // Bio style
-const CoreBioWrapper = styled.div`
+const CoreBioWrapper = styled.div<{ theme: string }>`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -39,8 +45,9 @@ const CoreBioWrapper = styled.div`
   margin: 0 0 0 auto;
   padding: 1.5rem 2rem;
   border-radius: 4px;
-  background-color: #fefefe;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+  background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background)};
+  box-shadow: ${props =>
+    props.theme === 'light' ? '0px 0px 3px 0px rgba(0, 0, 0, 0.2)' : '0px 0px 3px 1px rgba(255, 255, 255, 0.1)'};
 
   @media (max-width: 559px) {
     width: 100%;

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import Share from '../components/Share';
+// import context
 // import style
 import { BlogContents } from '../styles/BlogContents';
 import { BlogHighlights } from '../styles/BlogHighlights';
@@ -90,13 +91,13 @@ const BlogStyleHero = styled.div`
 const BlogTitle = styled.h2`
   margin: 0;
   margin-top: 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 550;
 `;
 
 const BlogDescription = styled.p`
   margin: 0.7rem 0;
-  color: rgba(0, 0, 0, 0.6);
+  color: #828282;
 `;
 
 const BlogHeroBottom = styled.div`
@@ -108,13 +109,13 @@ const BlogHeroTagContainer = styled.div``;
 
 const BlogPostDate = styled.span`
   display: block;
-  color: rgba(0, 0, 0, 0.5);
+  color: #828282;
 `;
 
 const AuthorBioWrapper = styled.div`
   margin-top: 2rem;
   padding-top: 3.5rem;
-  border-top: 2px dashed rgba(0, 0, 0, 0.2);
+  border-top: 2px dashed #828282;
 `;
 
 // graphql settings

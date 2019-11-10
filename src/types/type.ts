@@ -65,6 +65,7 @@ export interface IndexPageProps {
   };
 }
 
+// blog post page type
 export interface BlogPostProps {
   pageContext: {
     slug: string;

@@ -5,7 +5,7 @@ import _ from 'lodash';
 // import components
 import Category from '../components/Category';
 import Layout from '../components/Layout';
-// import styled
+// import style
 import * as Post from '../styles/PostIndex';
 // import type
 import { IndexPageProps } from '../types/type';

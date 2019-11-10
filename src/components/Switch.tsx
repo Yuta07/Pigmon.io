@@ -5,8 +5,6 @@ import Light from '../assets/light.svg';
 import Dark from '../assets/dark.svg';
 // import context
 import { ThemeContext } from './ThemeContext';
-// import style
-import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
 type SwitchProps = {
   switchToggleStateClick: () => void;

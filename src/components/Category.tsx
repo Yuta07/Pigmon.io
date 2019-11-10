@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 // import data
 import { CategoryData } from '../data/Category';
+// import context
+import { ThemeContext } from './ThemeContext';
+// import style
+import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
 const Category = () => {
+  const value = useContext(ThemeContext);
+
   const renderCategoryNav = CategoryData.map((category, index) => {
     return (
       <CategoryList key={index}>
-        <CategoryLink to={category.path} activeClassName="active" activeStyle={{ color: '#e68123' }}>
+        <CategoryLink to={category.path} activeClassName="active" activeStyle={{ color: '#e68123' }} theme={value}>
           {category.title}
         </CategoryLink>
       </CategoryList>
@@ -16,18 +22,21 @@ const Category = () => {
   });
 
   return (
-    <CategoryWrapper>
+    <CategoryWrapper theme={value}>
       <CategoryUnOrderedList>{renderCategoryNav}</CategoryUnOrderedList>
     </CategoryWrapper>
   );
 };
 
 // app nav style
-const CategoryWrapper = styled.nav`
+const CategoryWrapper = styled.nav<{ theme: string }>`
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background)};
+  box-shadow: ${props =>
+    props.theme === 'light' ? '0px 1px 0px 1px rgba(0, 0, 0, 0.1)' : '0px 1px 6px 1px rgba(0, 0, 0, 0.2)'};
+  transition: all 0.25s linear;
 `;
 
 const CategoryUnOrderedList = styled.ul`
@@ -66,15 +75,16 @@ const CategoryList = styled.li`
   }
 `;
 
-const CategoryLink = styled(Link)`
+const CategoryLink = styled(Link)<{ theme: string }>`
+  color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.6);
   display: inline-flex;
   padding: 0.5rem 0.5rem;
 
   &:hover {
     opacity: 0.6;
     transition: 0.2s;
+    background-color: transparent;
   }
 `;
 
