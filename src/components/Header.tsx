@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStaticQuery, Link, graphql } from 'gatsby';
 import styled from 'styled-components';
+// import components
+import Switch from './Switch';
+// import context
+import { ThemeContext } from './ThemeContext';
+// import style
+import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
-const Header = () => {
+type HeaderProps = {
+  switchToggleStateClick: () => void;
+};
+
+const Header = (props: HeaderProps) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -15,22 +25,26 @@ const Header = () => {
     `
   );
 
+  const value = useContext(ThemeContext);
+
   return (
-    <CoreHeaderWrapper>
+    <CoreHeaderWrapper theme={value}>
       <HeaderWrapper>
-        <HeaderRootLink to="/">
+        <HeaderRootLink to="/" theme={value}>
           <HeaderTitleText>{data.site.siteMetadata.title}</HeaderTitleText>
         </HeaderRootLink>
+        <Switch switchToggleStateClick={props.switchToggleStateClick} />
       </HeaderWrapper>
     </CoreHeaderWrapper>
   );
 };
 
 // Header style
-const CoreHeaderWrapper = styled.header`
+const CoreHeaderWrapper = styled.header<{ theme: string }>`
   width: 100%;
   position: relative;
-  border-bottom: 1px solid #dedede;
+  border-bottom: ${props => (props.theme === 'light' ? '1px solid #dedede' : null)};
+  box-shadow: ${props => (props.theme === 'light' ? null : '0 0 2px 1px rgba(255, 255, 255, 0.1)')};
 `;
 
 const HeaderWrapper = styled.div`
@@ -40,17 +54,15 @@ const HeaderWrapper = styled.div`
   margin: 0 auto;
   padding: 10px 2%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   @media (min-width: 560px) and (max-width: 959px) {
     max-width: 620px;
-    justify-content: center;
   }
 
   @media (max-width: 559px) {
     max-width: 520px;
-    justify-content: center;
   }
 `;
 
@@ -59,9 +71,13 @@ const HeaderTitleText = styled.h1`
   margin: 0;
 `;
 
-const HeaderRootLink = styled(Link)`
-  color: #353333;
+const HeaderRootLink = styled(Link)<{ theme: string }>`
+  color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
   text-decoration: none;
+
+  &:hover {
+    background-color: transparent;
+  }
 `;
 
 export default Header;

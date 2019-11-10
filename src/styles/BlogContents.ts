@@ -29,18 +29,17 @@ export const BlogContents = css`
     }
   }
   h2 {
-    font-size: 1.6rem;
-  }
-  h3 {
     font-size: 1.4rem;
   }
-  h4 {
+  h3 {
     font-size: 1.2rem;
+  }
+  h4 {
+    font-size: 1.1rem;
   }
   p {
     margin: 0;
     margin-bottom: 0.8rem;
-    color: #464646;
 
     a {
       color: rgb(230, 129, 35);

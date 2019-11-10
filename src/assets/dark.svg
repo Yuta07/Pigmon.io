@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="496px" height="512px" viewBox="0 0 496 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>dark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dark" fill-rule="nonzero" fill="#F1F536">
+            <polygon id="Shape" points="92.704 270.59 126.681 252.713 160.721 270.59 154.236 232.711 181.75 205.906 143.701 200.329 126.681 165.862 109.723 200.329 71.675 205.906 99.169 232.711"></polygon>
+            <polygon id="Shape" points="149.208 82.033 175.824 68.037 202.48 82.033 197.392 52.364 218.96 31.375 189.152 26.995 175.824 0 162.536 26.995 132.747 31.375 154.275 52.364"></polygon>
+            <polygon id="Shape" points="13.733 120.54 35.362 109.168 57.009 120.54 52.879 96.439 70.397 79.379 46.176 75.828 35.362 53.89 24.547 75.828 0.345 79.379 17.843 96.439"></polygon>
+            <path d="M322.87,24.092 C339.271,56.126 348.788,92.359 348.788,130.826 C348.788,260.215 243.94,365.103 114.551,365.103 C76.044,365.103 39.811,355.625 7.749,339.146 C40.329,439.414 134.423,512 245.556,512 C383.664,512 495.655,400.009 495.655,261.9 C495.655,150.778 423.129,56.654 322.87,24.092 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

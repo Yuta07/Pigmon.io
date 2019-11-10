@@ -31,10 +31,10 @@ export const BlogPostsContainer = styled.div`
 
 export const BlogPostCard = styled.div`
   width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(119, 119, 119, 0.6);
 
   &:first-child {
-    margin: 40px 0;
+    margin: 30px 0 20px;
     border: none;
 
     @media (max-width: 559px) {
@@ -62,13 +62,12 @@ export const NewestPostLink = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: #353333;
+  padding-bottom: 0.5rem;
+  border-radius: 8px;
   text-decoration: none;
 
   &:hover {
     transition: 0.2s;
-    background-color: rgb(243, 243, 243);
-    border-radius: 0 0 8px 8px;
   }
 
   @media (max-width: 559px) {
@@ -99,7 +98,6 @@ export const NewestBlogPostHero = styled.h2`
   font-size: 1.4rem;
   font-weight: 550;
   line-height: 1.4;
-  color: #353333;
   margin: 1rem 0 0.5rem;
 
   @media (max-width: 559px) {
@@ -152,7 +150,6 @@ export const LaterPostLink = styled(Link)`
 
   &:hover {
     transition: 0.2s;
-    background-color: rgb(243, 243, 243);
   }
 
   @media (max-width: 559px) {
@@ -183,7 +180,6 @@ export const LaterBlogPostHero = styled.h2`
   font-size: 1.4rem;
   font-weight: 550;
   line-height: 1.4;
-  color: #353333;
   margin: 0;
 
   @media (max-width: 559px) {
