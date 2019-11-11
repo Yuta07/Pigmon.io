@@ -47,6 +47,7 @@ export const BlogContents = css`
 
       &:hover {
         text-decoration: underline;
+        background-color: transparent;
       }
     }
   }

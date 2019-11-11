@@ -90,6 +90,10 @@ const BioLinkContents = styled.div`
 const YutazonExternalLink = styled.a`
   display: inline-flex;
   margin-right: 1.5rem;
+
+  &:hover {
+    background-color: transparent;
+  }
 `;
 
 const YutazonExternalLinkImage = styled.img`

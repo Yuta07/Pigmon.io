@@ -74,7 +74,6 @@ const CategoryList = styled.li`
 `;
 
 const CategoryLink = styled(Link)<{ theme: string }>`
-  color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
   text-decoration: none;
   display: inline-flex;
   padding: 0.5rem 0.5rem;

@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `Pigmon.io`,
+    titleTemplate: '%s | Pigmon.io',
     author: `Yutaka Miyazaki`,
     description: `A Personal blog by Yutazon.`,
-    siteUrl: `https://pigmon.io/`,
-    image: `/src/assets/pigmon.png`,
+    url: `https://pigmon.io/`,
+    image: `/static/pigmon.png`,
     social: {
       twitter: `yutazon7`,
     },
@@ -84,7 +85,7 @@ module.exports = {
         background_color: `#fefefe`,
         theme_color: `#353333`,
         display: `standalone`,
-        icon: `src/assets/pigmon.png`,
+        icon: `static/pigmon.png`,
       },
     },
     {

@@ -42,6 +42,9 @@ interface childImageSharp {
 
 // index page blog post type
 export interface IndexPageProps {
+  pageContext: {
+    category: string;
+  };
   data: {
     allMarkdownRemark: {
       edges: [

@@ -68,11 +68,12 @@ const GlobalStyle = createGlobalStyle<{ theme: string }>`
     background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background)};
   }
 
-  h1, h1, h3, h4, h5, p, a {
+  h1, h2, h3, h4, h5, p {
     color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
   }
 
   a {
+    color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
     &:hover {
       background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.hover : DARK_MODE.hover)};
     }
