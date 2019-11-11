@@ -19,7 +19,7 @@ type Theme = 'light' | 'dark';
 const Layout = (props: LayoutProps) => {
   let localTheme: Theme;
   if (typeof localStorage !== 'undefined') {
-    localTheme = window.localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+    localTheme = window.localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
   } else {
     localTheme = 'light';
   }
