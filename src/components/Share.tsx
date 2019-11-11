@@ -41,6 +41,10 @@ const ShareText = styled.p`
 const ShareLinkItem = styled.a`
   display: inline-block;
   margin-top: 4px;
+
+  &:hover {
+    background-color: transparent;
+  }
 `;
 
 const ShareTwitter = styled.img`

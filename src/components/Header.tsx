@@ -43,7 +43,7 @@ const Header = (props: HeaderProps) => {
 const CoreHeaderWrapper = styled.header<{ theme: string }>`
   width: 100%;
   position: relative;
-  border-bottom: ${props => (props.theme === 'light' ? '1px solid #dedede' : null)};
+  border-bottom: ${props => (props.theme === 'light' ? '1px solid #dedede' : '1px solid transparent')};
   box-shadow: ${props => (props.theme === 'light' ? null : '0 0 2px 1px rgba(255, 255, 255, 0.1)')};
 `;
 

@@ -5,6 +5,7 @@ import _ from 'lodash';
 // import components
 import Category from '../components/Category';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 // import style
 import * as Post from '../styles/PostIndex';
 // import type
@@ -74,6 +75,7 @@ const Index = (props: IndexPageProps) => {
 
   return (
     <Layout>
+      <SEO lang="ja" description="" meta={[]} />
       <Category />
       <Post.IndexContainer>
         <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>
