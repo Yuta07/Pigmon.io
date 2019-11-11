@@ -68,7 +68,7 @@ const ToggleBall = styled.div<{ theme: string }>`
   border-radius: 50%;
   background-color: #fefefe;
   transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1) 0ms;
-  transform: ${props => (props.theme === 'light' ? 'translateX(0)' : 'translateX(36px)')};
+  transform: ${props => (props.theme === 'dark' ? 'translateX(36px)' : 'translateX(0)')};
 `;
 
 export default Switch;
