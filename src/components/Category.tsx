@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import { CategoryData } from '../data/Category';
 // import context
 import { ThemeContext } from './ThemeContext';
-// import style
-import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
 const Category = () => {
   const value = useContext(ThemeContext);
@@ -33,6 +31,7 @@ const CategoryWrapper = styled.nav<{ theme: string }>`
   position: sticky;
   top: 0;
   z-index: 100;
+  background-color: ${props => (props.theme === 'light' ? '#fefefe' : '#282c35')};
   box-shadow: ${props =>
     props.theme === 'light' ? '0px 1px 0px 1px rgba(0, 0, 0, 0.1)' : '0px 1px 6px 1px rgba(0, 0, 0, 0.2)'};
 `;

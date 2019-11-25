@@ -169,7 +169,7 @@ export const BlogContents = css`
       width: 4px;
       height: 100%;
       border-radius: 6px;
-      background: rgb(0, 0, 0, 0.5);
+      background: rgba(121, 127, 142, 0.6);
     }
 
     p {

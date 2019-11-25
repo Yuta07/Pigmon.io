@@ -61,7 +61,7 @@ const GlobalStyle = createGlobalStyle<{ theme: string }>`
     font-size: 16px;
     font-weight: 400;
     font-family: 'Lato';
-    line-height: 1.6;
+    line-height: 1.8;
     word-wrap: break-word;
     font-kerning: normal;
     color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
