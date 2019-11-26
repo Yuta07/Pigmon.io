@@ -12,7 +12,7 @@ export const LinkData: Link[] = [
   },
   {
     img: Twitter,
-    link: 'https://twitter.com/Yuta52407938',
+    link: 'https://twitter.com/yutazon7',
     name: 'twitter',
   },
   {
