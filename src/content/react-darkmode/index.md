@@ -1,7 +1,7 @@
 ---
-title: React ContextAPIでダークモード実装
+title: React ContextAPI でダークモード実装
 date: '2019-11-23'
-excerpt: 'React ContextAPIを使ってダークモードを実装する。'
+excerpt: 'React でダークモードを実装する。'
 featuredImage: './darkmode.png'
 categories: ['Dev']
 ---
@@ -126,13 +126,11 @@ import { AppTheme } from '../types/type';
 export const LIGHT_MODE: AppTheme = {
   text: '#353333',
   background: '#fefefe;',
-  hover: 'rgb(243, 243, 243)',
 };
 
 export const DARK_MODE: AppTheme = {
   text: '#dadada',
   background: '#282c35',
-  hover: 'rgb(49, 55, 70)',
 };
 ```
 
@@ -224,9 +222,9 @@ const GlobalStyle = createGlobalStyle<{ theme: string }>`
 
 ボタンの切り替えをするためにあらかじめ作成した `Switch.tsx` にコンテクストをインポートしてスタイルを追加します。
 
-また、 `useContext` でコンテクストを受け取っています。
-
 - Switch.tsx(完成版)
+
+`useContext` でコンテクストを受け取っています。
 
 ```typescript
 import React, { useContext } from 'react';
@@ -311,7 +309,7 @@ export default Switch;
 
 これでダークモードの切り替えができるようになると思います。
 
-テーマを変更したいコンポーネントでコンテクストをインポートして、コンテクストを受け取ればテーマの値を参照できるようになります。
+テーマを変更したいコンポーネントでコンテクスト受け取れば、テーマの値を参照できるようになります。
 
 ## 😄 まとめ
 
