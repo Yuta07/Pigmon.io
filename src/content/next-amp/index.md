@@ -19,8 +19,6 @@ AMP には便利な UI コンポーネントが用意されているので、そ
 
 Next.js で AMP を対応させるには 2 つの方法があります。
 
-この場合、
-
 ### 1. AMP First Page
 
 ```javascript
