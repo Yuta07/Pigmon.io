@@ -37,9 +37,9 @@ export const config = { amp: 'hybrid' };
 
 既存のページを AMP 対応させる場合、Hybrid AMP のパターンをとることになると思います。
 
-Hybrid AMP とする場合は、オリジナルのページと AMP のページで作成する必要があるので、同じ UX にするために作る必要があります。
+Hybrid AMP とする場合は、オリジナルのページと AMP のページで作成する必要があるので、同じ UX にするために 2 つのページを作る必要があります。
 
-そのため、AMP を想定して AMP First ページを作成していくことをお勧めします。
+そのため、設計段階から AMP を想定して AMP First ページを作成していくことをお勧めします。
 
 ## 🤔️️ TypeScript で AMP
 
@@ -47,7 +47,7 @@ TypeScript を利用している場合、型が定義されている訳ではな
 
 プロジェクトフォルダ直下に `amp.d.ts` ファイルを作成して下記のように定義します。
 
-`amp-img` を使用する場合です。
+以下は `amp-img` を使用する場合です。
 
 ```typescript
 declare namespace JSX {
@@ -63,21 +63,22 @@ declare namespace JSX {
   interface IntrinsicElements {
     'amp-img': AmpImg;
   }
-
-  interface IntrinsicElements {
-    'amp-timeago': AmpTimeAgo;
-  }
 }
 ```
 
 他の AMP コンポーネントを使用する場合でも同様に追加するだけです。
 
+`amp-timeago` を使用する場合は、スクリプトを読み込んで
+
 ## 🌸 Example
 
-Next.js での簡単な例です。
+Next.js で AMP First ページを作成する例です。
+
 `Head` 内で AMP を使用するためにスクリプトを読み込みます。
 
 また、AMP コンポーネントを使用する場合はその都度、スクリプトを読み込む必要があります。
+
+`amp-img`と `amp-timeago` を使用してみます。
 
 ```typescript
 import Head from 'next/head';
@@ -90,11 +91,15 @@ const AMPComponent = () => {
       <Head>
         <title>AMP Example</title>
         <script async src="https://cdn.ampproject.org/v0.js" />
+        <script async custom-element="amp-timeago" src="https://cdn.ampproject.org/v0/amp-timeago-0.1.js" />
       </Head>
       <style jsx>{`
-        // スタイルの記述はここに行います
+        // スタイルの記述はここで行います
       `}</style>
       <div>
+        <amp-timeago class="ja" width="160" height="20" datetime="2019-10-01T00:37:33.809Z" locale="ja">
+          01 October 2019
+        </amp-timeago>
         <amp-img src="" width="" height="" alt="" layout="responsive">
           <noscript>
             <img src="" width="" height="" alt="" />
