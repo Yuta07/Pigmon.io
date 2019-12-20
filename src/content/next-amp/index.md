@@ -68,8 +68,6 @@ declare namespace JSX {
 
 他の AMP コンポーネントを使用する場合でも同様に追加するだけです。
 
-`amp-timeago` を使用する場合は、スクリプトを読み込んで
-
 ## 🌸 Example
 
 Next.js で AMP First ページを作成する例です。
