@@ -1,7 +1,7 @@
 ---
-title: React ContextAPI でダークモード実装
+title: React でダークモードの実装
 date: '2019-11-23'
-excerpt: 'React でダークモードを実装する。'
+excerpt: 'React で ContextAPI を使用してダークモードを実装する。'
 featuredImage: './darkmode.png'
 categories: ['Dev']
 ---
