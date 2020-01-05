@@ -1,7 +1,7 @@
 ---
 title: Next.jsでAMP対応
 date: '2019-12-15'
-excerpt: 'Next.jsアプリケーションでAMP対応してみる'
+excerpt: 'Next.jsアプリケーションでAMP対応してみる。'
 featuredImage: './AMP_icon.png'
 categories: ['Dev']
 ---

@@ -77,7 +77,7 @@ export const NewestPostLink = styled(Link)`
 
 export const NewestImageWrapper = styled.div`
   @media (max-width: 559px) {
-    width: 100px;
+    width: 120px;
     height: 100%;
   }
 `;
@@ -130,7 +130,7 @@ export const NewestBlogPostBottom = styled.div`
 export const NewestBlogPostDate = styled.small`
   color: #828282;
   font-size: 0.9rem;
-  margin: 0 0 0 auto;
+  margin: 0 0.5rem 0 auto;
 
   @media (max-width: 559px) {
     margin: 0.5rem 0 0 auto;
@@ -158,11 +158,11 @@ export const LaterPostLink = styled(Link)`
 `;
 
 export const LaterImageWrapper = styled.div`
-  width: 120px;
+  width: 150px;
   height: 100%;
 
   @media (max-width: 559px) {
-    width: 100px;
+    width: 120px;
   }
 `;
 
