@@ -1,18 +1,15 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-// import components
-import Switch from './Switch';
-// import context
-import { ThemeContext } from './ThemeContext';
-// import style
-import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
+import { Switch } from '../atoms/Switch';
+import { ThemeContext } from '../ThemeContext';
+import { LIGHT_MODE, DARK_MODE } from '../../styles/Theme';
 
 type HeaderProps = {
   switchToggleStateClick: () => void;
 };
 
-const Header = (props: HeaderProps) => {
+export const Header = (props: HeaderProps) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -79,5 +76,3 @@ const HeaderRootLink = styled(Link)<{ theme: string }>`
     background-color: transparent;
   }
 `;
-
-export default Header;

@@ -11,7 +11,7 @@ type SEOProps = {
   title?: string;
 };
 
-const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
+export const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -85,5 +85,3 @@ const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
     </Fragment>
   );
 };
-
-export default SEO;

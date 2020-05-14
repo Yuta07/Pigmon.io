@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-// import data
-import { CategoryData } from '../data/Category';
-// import context
-import { ThemeContext } from './ThemeContext';
+import { CategoryData } from '../../data/Category';
+import { ThemeContext } from '../ThemeContext';
 
-const Category = () => {
+export const Category = () => {
   const value = useContext(ThemeContext);
 
   const renderCategoryNav = CategoryData.map((category, index) => {
@@ -83,5 +81,3 @@ const CategoryLink = styled(Link)<{ theme: string }>`
     background-color: transparent;
   }
 `;
-
-export default Category;

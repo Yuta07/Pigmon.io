@@ -1,22 +1,18 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-// import assets
-import Light from '../assets/light.svg';
-import Dark from '../assets/dark.svg';
-// import context
-import { ThemeContext } from './ThemeContext';
+import { ThemeContext } from '../ThemeContext';
 
 type SwitchProps = {
   switchToggleStateClick: () => void;
 };
 
-const Switch = (props: SwitchProps) => {
+export const Switch = (props: SwitchProps) => {
   const value = useContext(ThemeContext);
 
   return (
     <ToggleSwitch onClick={props.switchToggleStateClick}>
-      <DarkImg src={Dark} alt="dark-mode" />
-      <LightImg src={Light} alt="light-mode" />
+      <DarkImg src="/dark.svg" alt="dark-mode" />
+      <LightImg src="light.svg" alt="light-mode" />
       <ToggleBall theme={value} />
     </ToggleSwitch>
   );
@@ -70,5 +66,3 @@ const ToggleBall = styled.div<{ theme: string }>`
   transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1) 0ms;
   transform: ${props => (props.theme === 'dark' ? 'translateX(36px)' : 'translateX(0)')};
 `;
-
-export default Switch;

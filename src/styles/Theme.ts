@@ -1,4 +1,4 @@
-import { AppTheme } from '../types/type';
+import { AppTheme } from '../types';
 
 export const LIGHT_MODE: AppTheme = {
   text: '#353333',

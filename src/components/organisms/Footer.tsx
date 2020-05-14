@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-// import context
-import { ThemeContext } from './ThemeContext';
+import { ThemeContext } from '../ThemeContext';
 
-const Footer = () => {
+export const Footer = () => {
   const value = useContext(ThemeContext);
 
   return (
@@ -44,11 +43,10 @@ const FooterWrapper = styled.div`
 
 const FooterCopyRight = styled.div`
   font-size: 0.8rem;
+  letter-spacing: 0.5px;
 
   @media (max-width: 559px) {
     margin: 1rem 0;
     flex-direction: column;
   }
 `;
-
-export default Footer;

@@ -2,12 +2,9 @@ import React, { ReactNode, useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import 'typeface-lato';
 import 'normalize.css';
-// import components
-import Footer from './Footer';
-import Header from './Header';
-// import context
+import { Footer } from './organisms/Footer';
+import { Header } from './organisms/Header';
 import { ThemeContext } from './ThemeContext';
-// import style
 import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
 type LayoutProps = {
@@ -16,7 +13,7 @@ type LayoutProps = {
 
 type Theme = 'light' | 'dark';
 
-const Layout = (props: LayoutProps) => {
+export const Layout = (props: LayoutProps) => {
   let localTheme: Theme;
   if (typeof localStorage !== 'undefined') {
     localTheme = window.localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
@@ -91,5 +88,3 @@ const MainContainer = styled.div`
   flex-direction: column;
   width: 100%;
 `;
-
-export default Layout;

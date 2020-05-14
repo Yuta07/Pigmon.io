@@ -2,18 +2,17 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import _ from 'lodash';
-// import components
-import Category from '../components/Category';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import { Category } from '../organisms/Category';
+import { Layout } from '../Layout';
+import { SEO } from '../atoms/SEO';
 // import style
-import * as Post from '../styles/PostIndex';
+import * as Post from '../../styles/PostIndex';
 // import type
-import { IndexPageProps } from '../types/type';
+import { IndexPageProps } from '../../types';
 // import utils
-import { CategoryColorFilter } from '../utils/Utils';
+import { CategoryColorFilter } from '../../utils/Utils';
 
-const CategoryIndex = (props: IndexPageProps) => {
+export const CategoryIndex = (props: IndexPageProps) => {
   const { edges } = props.data.allMarkdownRemark;
 
   const renderCategory = (categories: string[]) => {
@@ -116,5 +115,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default CategoryIndex;

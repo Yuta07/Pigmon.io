@@ -3,23 +3,18 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import _ from 'lodash';
 import styled from 'styled-components';
-// import components
-import Bio from '../components/Bio';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import Share from '../components/Share';
-// import context
-// import style
-import { BlogContents } from '../styles/BlogContents';
-import { BlogHighlights } from '../styles/BlogHighlights';
-import { BlogImageContents } from '../styles/BlogImageContents';
-import * as Post from '../styles/PostIndex';
-// import type
-import { BlogPostProps } from '../types/type';
-// import utils
-import { CategoryColorFilter } from '../utils/Utils';
+import { Bio } from '../organisms/Bio';
+import { Layout } from '../Layout';
+import { SEO } from '../atoms/SEO';
+import { Share } from '../atoms/Share';
+import { BlogContents } from '../../styles/BlogContents';
+import { BlogHighlights } from '../../styles/BlogHighlights';
+import { BlogImageContents } from '../../styles/BlogImageContents';
+import * as Post from '../../styles/PostIndex';
+import { BlogPostProps } from '../../types';
+import { CategoryColorFilter } from '../../utils/Utils';
 
-const BlogPost = (props: BlogPostProps) => {
+export const BlogPost = (props: BlogPostProps) => {
   const post = props.data.markdownRemark;
 
   const renderCategory = (categories: string[]) => {
@@ -141,5 +136,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default BlogPost;
