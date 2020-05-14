@@ -1,19 +1,15 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ThemeContext } from '../ThemeContext';
 
-type SwitchProps = {
-  switchToggleStateClick: () => void;
-};
-
-export const Switch = (props: SwitchProps) => {
-  const value = useContext(ThemeContext);
+export const Switch = () => {
+  const { theme, switchTheme } = useContext(ThemeContext);
 
   return (
-    <ToggleSwitch onClick={props.switchToggleStateClick}>
+    <ToggleSwitch onClick={switchTheme}>
       <DarkImg src="/dark.svg" alt="dark-mode" />
-      <LightImg src="light.svg" alt="light-mode" />
-      <ToggleBall theme={value} />
+      <LightImg src="/light.svg" alt="light-mode" />
+      <ToggleBall theme={theme} />
     </ToggleSwitch>
   );
 };
@@ -56,13 +52,17 @@ const DarkImg = styled.img`
 `;
 
 const ToggleBall = styled.div<{ theme: string }>`
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background-color: #fefefe;
-  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1) 0ms;
-  transform: ${props => (props.theme === 'dark' ? 'translateX(36px)' : 'translateX(0)')};
+  ${({ theme }) => {
+    return css`
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: #fefefe;
+      transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1) 0ms;
+      transform: ${theme === 'dark' ? 'translateX(36px)' : 'translateX(0)'};
+    `;
+  }}
 `;

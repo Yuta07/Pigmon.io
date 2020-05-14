@@ -2,15 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import _ from 'lodash';
-// import components
 import { Category } from '../components/organisms/Category';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/atoms/SEO';
-// import style
 import * as Post from '../styles/PostIndex';
-// import type
 import { IndexPageProps } from '../types';
-// import utils
 import { CategoryColorFilter } from '../utils/Utils';
 
 const Index = (props: IndexPageProps) => {

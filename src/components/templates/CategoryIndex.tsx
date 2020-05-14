@@ -5,14 +5,11 @@ import _ from 'lodash';
 import { Category } from '../organisms/Category';
 import { Layout } from '../Layout';
 import { SEO } from '../atoms/SEO';
-// import style
 import * as Post from '../../styles/PostIndex';
-// import type
 import { IndexPageProps } from '../../types';
-// import utils
 import { CategoryColorFilter } from '../../utils/Utils';
 
-export const CategoryIndex = (props: IndexPageProps) => {
+const CategoryIndex = (props: IndexPageProps) => {
   const { edges } = props.data.allMarkdownRemark;
 
   const renderCategory = (categories: string[]) => {
@@ -115,3 +112,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default CategoryIndex;

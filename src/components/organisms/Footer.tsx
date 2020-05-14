@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ThemeContext } from '../ThemeContext';
 
 export const Footer = () => {
-  const value = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <CoreFooterWrapper theme={value}>
+    <CoreFooterWrapper theme={theme}>
       <FooterWrapper>
         <FooterCopyRight>© {new Date().getFullYear()}, Yutazon - All rights reserved.</FooterCopyRight>
       </FooterWrapper>
@@ -16,9 +16,14 @@ export const Footer = () => {
 
 // Footer style
 const CoreFooterWrapper = styled.footer<{ theme: string }>`
-  width: 100%;
-  box-shadow: ${props =>
-    props.theme === 'light' ? '0px -1px 4px -1px rgba(0, 0, 0, 0.1)' : '0px -2px 2px -1px rgba(255, 255, 255, 0.1)'};
+  ${({ theme }) => {
+    return css`
+      width: 100%;
+      box-shadow: ${theme === 'light'
+        ? '0px -1px 4px -1px rgba(0, 0, 0, 0.1)'
+        : '0px -2px 2px -1px rgba(255, 255, 255, 0.1)'};
+    `;
+  }}
 `;
 
 const FooterWrapper = styled.div`

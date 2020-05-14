@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-// import components
-import Layout from '../components/Layout';
-// import assets
-import NotFound from '../assets/not-found.svg';
+import { Layout } from '../components/Layout';
 
 const NotFoundPage = () => {
   return (
     <Layout>
       <NotFoundWrapper>
         <NotFoundHero>Not Found</NotFoundHero>
-        <NotFoundImage src={NotFound} alt="NotFound" />
+        <NotFoundImage src="/not-found.svg" alt="NotFound" />
         <NotFoundSadness>You just hit a route that doesn&#39;t exist... the sadness.</NotFoundSadness>
         <RedirectHome to="/">Home</RedirectHome>
       </NotFoundWrapper>

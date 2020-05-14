@@ -1,43 +1,41 @@
 import React, { ReactNode, useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 import 'typeface-lato';
 import 'normalize.css';
 import { Footer } from './organisms/Footer';
 import { Header } from './organisms/Header';
-import { ThemeContext } from './ThemeContext';
+import { ThemeContext, ThemeType } from './ThemeContext';
 import { LIGHT_MODE, DARK_MODE } from '../styles/Theme';
 
-type LayoutProps = {
+type Props = {
   children: ReactNode;
 };
 
-type Theme = 'light' | 'dark';
-
-export const Layout = (props: LayoutProps) => {
-  let localTheme: Theme;
+export const Layout = ({ children }: Props) => {
+  let localTheme: ThemeType;
   if (typeof localStorage !== 'undefined') {
     localTheme = window.localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
   } else {
     localTheme = 'light';
   }
-  const [switchTheme, setSwitchTheme] = useState<Theme>(localTheme);
+  const [theme, setTheme] = useState(localTheme);
 
   const switchToggleThemeClick = () => {
-    if (switchTheme === 'dark') {
-      setSwitchTheme('light');
+    if (theme === 'dark') {
+      setTheme('light');
       localStorage.setItem('theme', 'light');
     } else {
-      setSwitchTheme('dark');
+      setTheme('dark');
       localStorage.setItem('theme', 'dark');
     }
   };
 
   return (
-    <ThemeContext.Provider value={switchTheme}>
-      <GlobalStyle theme={switchTheme} />
+    <ThemeContext.Provider value={{ theme: theme, switchTheme: switchToggleThemeClick }}>
+      <GlobalStyle theme={theme} />
       <AppBody>
-        <Header switchToggleStateClick={switchToggleThemeClick} />
-        <MainContainer>{props.children}</MainContainer>
+        <Header />
+        <MainContainer>{children}</MainContainer>
         <Footer />
       </AppBody>
     </ThemeContext.Provider>
@@ -46,35 +44,44 @@ export const Layout = (props: LayoutProps) => {
 
 // Global style
 const GlobalStyle = createGlobalStyle<{ theme: string }>`
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    overflow-y: scroll;
-  }
-
-  body {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: 'Lato';
-    line-height: 1.8;
-    word-wrap: break-word;
-    font-kerning: normal;
-    color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
-    background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background)};
-  }
-
-  h1, h2, h3, h4, h5, p {
-    color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
-  }
-
-  a {
-    color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
-    &:hover {
-      background-color: ${props => (props.theme === 'light' ? LIGHT_MODE.hover : DARK_MODE.hover)};
+${({ theme }) => {
+  return css`
+    * {
+      box-sizing: border-box;
     }
-  }
+
+    html {
+      overflow-y: scroll;
+    }
+
+    body {
+      font-size: 16px;
+      font-weight: 400;
+      font-family: 'Lato';
+      line-height: 1.8;
+      word-wrap: break-word;
+      font-kerning: normal;
+      color: ${theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text};
+      background-color: ${theme === 'light' ? LIGHT_MODE.background : DARK_MODE.background};
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      color: ${theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text};
+    }
+
+    a {
+      color: ${theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text};
+      &:hover {
+        background-color: ${theme === 'light' ? LIGHT_MODE.hover : DARK_MODE.hover};
+      }
+    }
+  `;
+}}
 `;
 
 // Layout style

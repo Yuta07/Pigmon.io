@@ -1,15 +1,11 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, Link, graphql } from 'gatsby';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Switch } from '../atoms/Switch';
 import { ThemeContext } from '../ThemeContext';
 import { LIGHT_MODE, DARK_MODE } from '../../styles/Theme';
 
-type HeaderProps = {
-  switchToggleStateClick: () => void;
-};
-
-export const Header = (props: HeaderProps) => {
+export const Header = () => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -22,15 +18,15 @@ export const Header = (props: HeaderProps) => {
     `
   );
 
-  const value = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <CoreHeaderWrapper theme={value}>
+    <CoreHeaderWrapper theme={theme}>
       <HeaderWrapper>
-        <HeaderRootLink to="/" theme={value}>
+        <HeaderRootLink to="/" theme={theme}>
           <HeaderTitleText>{data.site.siteMetadata.title}</HeaderTitleText>
         </HeaderRootLink>
-        <Switch switchToggleStateClick={props.switchToggleStateClick} />
+        <Switch />
       </HeaderWrapper>
     </CoreHeaderWrapper>
   );
@@ -38,10 +34,14 @@ export const Header = (props: HeaderProps) => {
 
 // Header style
 const CoreHeaderWrapper = styled.header<{ theme: string }>`
-  width: 100%;
-  position: relative;
-  border-bottom: ${props => (props.theme === 'light' ? '1px solid #dedede' : '1px solid transparent')};
-  box-shadow: ${props => (props.theme === 'light' ? null : '0 0 2px 1px rgba(255, 255, 255, 0.1)')};
+  ${({ theme }) => {
+    return css`
+      width: 100%;
+      position: relative;
+      border-bottom: ${theme === 'light' ? '1px solid #dedede' : '1px solid transparent'};
+      box-shadow: ${theme === 'light' ? null : '0 0 2px 1px rgba(255, 255, 255, 0.1)'};
+    `;
+  }}
 `;
 
 const HeaderWrapper = styled.div`
@@ -69,10 +69,14 @@ const HeaderTitleText = styled.h1`
 `;
 
 const HeaderRootLink = styled(Link)<{ theme: string }>`
-  color: ${props => (props.theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text)};
-  text-decoration: none;
+  ${({ theme }) => {
+    return css`
+      color: ${theme === 'light' ? LIGHT_MODE.text : DARK_MODE.text};
+      text-decoration: none;
 
-  &:hover {
-    background-color: transparent;
-  }
+      &:hover {
+        background-color: transparent;
+      }
+    `;
+  }}
 `;

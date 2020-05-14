@@ -14,7 +14,7 @@ import * as Post from '../../styles/PostIndex';
 import { BlogPostProps } from '../../types';
 import { CategoryColorFilter } from '../../utils/Utils';
 
-export const BlogPost = (props: BlogPostProps) => {
+const BlogPost = (props: BlogPostProps) => {
   const post = props.data.markdownRemark;
 
   const renderCategory = (categories: string[]) => {
@@ -136,3 +136,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default BlogPost;
