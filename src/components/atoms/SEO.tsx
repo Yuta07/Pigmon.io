@@ -13,7 +13,7 @@ type SEOProps = {
   meta?: [];
 };
 
-export const SEO = ({ title, description, lang = 'ja', image, meta }: SEOProps) => {
+export const SEO = ({ title, description, image, meta }: SEOProps) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
 

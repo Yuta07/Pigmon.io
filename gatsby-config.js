@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: '%s | Pigmon.io',
     author: `Yutaka Miyazaki`,
     description: `Personal blog by Yutaka Miyazaki.`,
-    siteUrl: `https://pigmon.io`,
+    url: `https://pigmon.io`,
     image: `/pigmon.png`,
     twitterUsername: `@yutazon7`,
   },
