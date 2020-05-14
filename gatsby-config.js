@@ -3,12 +3,10 @@ module.exports = {
     title: `Pigmon.io`,
     titleTemplate: '%s | Pigmon.io',
     author: `Yutaka Miyazaki`,
-    description: `A Personal blog by Yutazon. Yutazonの個人ブログ。プログラミングのことを中心に色々なことを発信していきます。`,
-    siteUrl: `https://pigmon.io/`,
-    image: `/static/pigmon.png`,
-    social: {
-      twitter: `yutazon7`,
-    },
+    description: `Personal blog by Yutaka Miyazaki.`,
+    siteUrl: `https://pigmon.io`,
+    image: `/pigmon.png`,
+    twitterUsername: `@yutazon7`,
   },
   plugins: [
     {

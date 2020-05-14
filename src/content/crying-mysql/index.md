@@ -1,7 +1,7 @@
 ---
 title: 'Railsでmysqlがインストールできない'
 date: '2020-04-06'
-excerpt: 'Railsでmysqlがインストールできない。gem install mysql2でmysql2が利用できない場合には。この記事は2019年3月に書いた記事です。'
+excerpt: 'この記事は2019年3月に書いた記事です。Railsでmysqlがインストールできない場合は。'
 featuredImage: './pien.png'
 categories: ['Dev']
 ---
@@ -66,4 +66,5 @@ brew install openssl
 をして下さい。
 ​
 この結果、無事に mysql での開発を進めることができました！
+
 GitHub 万歳！！！

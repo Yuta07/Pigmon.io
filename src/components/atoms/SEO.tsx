@@ -1,80 +1,84 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
+import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 
 // ref: https://blog.logrocket.com/set-up-a-typescript-gatsby-app/
 
 type SEOProps = {
+  title?: string;
   description?: string;
   lang?: string;
+  image?: string;
   meta?: [];
-  title?: string;
 };
 
-export const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            image
-          }
-        }
-      }
-    `
-  );
+export const SEO = ({ title, description, lang = 'ja', image, meta }: SEOProps) => {
+  const { pathname } = useLocation();
+  const { site } = useStaticQuery(query);
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = `${site.siteMetadata.title} | Yutazonのブログ`;
+  const { defaultTitle, titleTemplate, defaultDescription, siteUrl, defaultImage, twitterUsername } = site.siteMetadata;
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    image: `${siteUrl}${image || defaultImage}`,
+    url: `${siteUrl}${pathname}`,
+  };
 
   return (
-    <Fragment>
+    <>
       <Helmet
-        htmlAttributes={{
-          lang,
-        }}
-        defaultTitle={defaultTitle}
         title={title}
-        titleTemplate={`%s | ${site.siteMetadata.title}`}
+        titleTemplate={titleTemplate}
         meta={[
           {
             name: `description`,
-            content: metaDescription,
+            content: seo.description,
           },
           {
-            property: `og:title`,
-            content: title,
+            name: `image`,
+            content: seo.image,
           },
           {
-            property: `og:description`,
-            content: metaDescription,
-          },
-          {
-            property: `og:image`,
-            content: site.siteMetadata.image,
+            name: `og:url`,
+            content: seo.url,
           },
           {
             property: `og:type`,
             content: `blog`,
           },
           {
+            property: `og:title`,
+            content: seo.title,
+          },
+          {
+            property: `og:description`,
+            content: seo.description,
+          },
+          {
+            property: `og:image`,
+            content: seo.image,
+          },
+          {
             name: `twitter:card`,
-            content: `summary`,
+            content: `summary_large_image`,
           },
           {
             name: `twitter:creator`,
-            content: site.siteMetadata.author,
+            content: twitterUsername,
           },
           {
             name: `twitter:title`,
-            content: title,
+            content: seo.title,
           },
           {
             name: `twitter:description`,
-            content: metaDescription,
+            content: seo.description,
+          },
+          {
+            name: `twitter:image`,
+            content: seo.image,
           },
         ].concat(meta || [])}
       />
@@ -82,6 +86,21 @@ export const SEO = ({ description, lang = 'ja', meta, title }: SEOProps) => {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
       </Helmet>
-    </Fragment>
+    </>
   );
 };
+
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        defaultTitle: title
+        titleTemplate
+        defaultDescription: description
+        siteUrl: url
+        defaultImage: image
+        twitterUsername
+      }
+    }
+  }
+`;
