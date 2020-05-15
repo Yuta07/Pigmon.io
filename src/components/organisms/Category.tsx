@@ -47,7 +47,6 @@ const CategoryUnOrderedList = styled.ul`
 
   @media (min-width: 560px) and (max-width: 959px) {
     max-width: 620px;
-    justify-content: center;
   }
 
   @media (max-width: 559px) {
