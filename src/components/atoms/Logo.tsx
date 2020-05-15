@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-// import assets
-import PigmonLogo from '../assets/pigmon.svg';
 
 type LogoProps = {
   width: number;
@@ -10,7 +8,7 @@ type LogoProps = {
 const Logo = (props: LogoProps) => {
   return (
     <Fragment>
-      <AppLogo src={PigmonLogo} alt="pigmon-image" width={props.width} />
+      <AppLogo src="/pigmon.svg" alt="pigmon-image" width={props.width} />
     </Fragment>
   );
 };

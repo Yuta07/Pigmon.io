@@ -1,18 +1,16 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
-// import data
-import { CategoryData } from '../data/Category';
-// import context
-import { ThemeContext } from './ThemeContext';
+import styled, { css } from 'styled-components';
+import { CategoryData } from '../../data/Category';
+import { ThemeContext } from '../ThemeContext';
 
-const Category = () => {
-  const value = useContext(ThemeContext);
+export const Category = () => {
+  const { theme } = useContext(ThemeContext);
 
   const renderCategoryNav = CategoryData.map((category, index) => {
     return (
       <CategoryList key={index}>
-        <CategoryLink to={category.path} activeClassName="active" activeStyle={{ color: '#e68123' }} theme={value}>
+        <CategoryLink to={category.path} activeClassName="active" activeStyle={{ color: '#e68123' }}>
           {category.title}
         </CategoryLink>
       </CategoryList>
@@ -20,7 +18,7 @@ const Category = () => {
   });
 
   return (
-    <CategoryWrapper theme={value}>
+    <CategoryWrapper theme={theme}>
       <CategoryUnOrderedList>{renderCategoryNav}</CategoryUnOrderedList>
     </CategoryWrapper>
   );
@@ -28,12 +26,15 @@ const Category = () => {
 
 // app nav style
 const CategoryWrapper = styled.nav<{ theme: string }>`
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: ${props => (props.theme === 'light' ? '#fefefe' : '#282c35')};
-  box-shadow: ${props =>
-    props.theme === 'light' ? '0px 1px 0px 1px rgba(0, 0, 0, 0.1)' : '0px 1px 6px 1px rgba(0, 0, 0, 0.2)'};
+  ${({ theme }) => {
+    return css`
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: ${theme === 'light' ? '#fefefe' : '#282c35'};
+      box-shadow: ${theme === 'light' ? '0px 1px 0px 1px rgba(0, 0, 0, 0.1)' : '0px 1px 6px 1px rgba(0, 0, 0, 0.2)'};
+    `;
+  }}
 `;
 
 const CategoryUnOrderedList = styled.ul`
@@ -45,14 +46,13 @@ const CategoryUnOrderedList = styled.ul`
   padding: 15px 2% 0;
 
   @media (min-width: 560px) and (max-width: 959px) {
-    max-width: 720px;
-    justify-content: center;
+    max-width: 620px;
   }
 
   @media (max-width: 559px) {
     max-width: 620px;
     padding: 0.5rem 2% 0;
-    justify-content: center;
+    justify-content: space-around;
   }
 `;
 
@@ -72,7 +72,7 @@ const CategoryList = styled.li`
   }
 `;
 
-const CategoryLink = styled(Link)<{ theme: string }>`
+const CategoryLink = styled(Link)`
   text-decoration: none;
   display: inline-flex;
   padding: 0.5rem 0.5rem;
@@ -83,5 +83,3 @@ const CategoryLink = styled(Link)<{ theme: string }>`
     background-color: transparent;
   }
 `;
-
-export default Category;

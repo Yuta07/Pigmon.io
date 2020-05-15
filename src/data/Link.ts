@@ -1,23 +1,19 @@
-import { Link } from '../types/type';
-// import assets
-import Octcat from '../assets/links/github-icon.svg';
-import Twitter from '../assets/links/twitter.svg';
-import YutazonMe from '../assets/links/Yutazon.me.png';
+import { Link } from '../types';
 
 export const LinkData: Link[] = [
   {
-    img: Octcat,
+    img: '/links/github-icon.svg',
     link: 'https://github.com/Yuta07',
     name: 'github',
   },
   {
-    img: Twitter,
-    link: 'https://twitter.com/yutazon7',
-    name: 'twitter',
-  },
-  {
-    img: YutazonMe,
+    img: '/links/portfolio.svg',
     link: 'https://yutazon.me',
     name: 'Yutazon.me',
+  },
+  {
+    img: '/links/twitter.svg',
+    link: 'https://twitter.com/yutazon7',
+    name: 'twitter',
   },
 ];

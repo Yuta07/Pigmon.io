@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-// import assets
-import TwitterImg from '../assets/shares/twitter.svg';
 
 type ShareProps = {
   title: string;
   slug: string;
 };
 
-const Share = ({ title, slug }: ShareProps) => {
+export const Share = ({ title, slug }: ShareProps) => {
   const siteUrl = `https://Pigmon.io${slug}`;
   const twitterUrl: string = `https://twitter.com/intent/tweet?url=${siteUrl}&text=${title}&via=yutazon7`;
 
@@ -16,7 +14,7 @@ const Share = ({ title, slug }: ShareProps) => {
     <ShareContainer>
       <ShareText>SHARE</ShareText>
       <ShareLinkItem href={twitterUrl} target="_blank" rel="noopener">
-        <ShareTwitter src={TwitterImg} alt="twitter" />
+        <ShareTwitter src="/shares/twitter.svg" alt="twitter" />
       </ShareLinkItem>
     </ShareContainer>
   );
@@ -51,5 +49,3 @@ const ShareTwitter = styled.img`
   width: 32px;
   height: 32px;
 `;
-
-export default Share;

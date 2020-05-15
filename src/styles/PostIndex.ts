@@ -6,7 +6,7 @@ export const IndexContainer = styled.main`
   width: 96%;
   max-width: 620px;
   min-height: 85vh;
-  margin: 20px auto 40px;
+  margin: 30px auto 60px;
   padding: 0 2%;
 
   @media (min-width: 560px) and (max-width: 959px) {
@@ -15,7 +15,7 @@ export const IndexContainer = styled.main`
 
   @media (max-width: 559px) {
     max-width: 520px;
-    margin: 0 auto;
+    margin: 20px auto 40px;
   }
 `;
 

@@ -1,4 +1,4 @@
-import { Category } from '../types/type';
+import { Category } from '../types';
 
 export const CategoryData: Category[] = [
   {
@@ -17,8 +17,4 @@ export const CategoryData: Category[] = [
     path: '/category/asobi',
     title: 'Asobi',
   },
-  // {
-  //   path: '/category/others',
-  //   title: 'Others',
-  // },
 ];

@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
-// import context
-import { ThemeContext } from './ThemeContext';
+import styled, { css } from 'styled-components';
+import { ThemeContext } from '../ThemeContext';
 
-const Footer = () => {
-  const value = useContext(ThemeContext);
+export const Footer = () => {
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <CoreFooterWrapper theme={value}>
+    <CoreFooterWrapper theme={theme}>
       <FooterWrapper>
         <FooterCopyRight>© {new Date().getFullYear()}, Yutazon - All rights reserved.</FooterCopyRight>
       </FooterWrapper>
@@ -17,9 +16,14 @@ const Footer = () => {
 
 // Footer style
 const CoreFooterWrapper = styled.footer<{ theme: string }>`
-  width: 100%;
-  box-shadow: ${props =>
-    props.theme === 'light' ? '0px -1px 4px -1px rgba(0, 0, 0, 0.1)' : '0px -2px 2px -1px rgba(255, 255, 255, 0.1)'};
+  ${({ theme }) => {
+    return css`
+      width: 100%;
+      box-shadow: ${theme === 'light'
+        ? '0px -1px 4px -1px rgba(0, 0, 0, 0.1)'
+        : '0px -2px 2px -1px rgba(255, 255, 255, 0.1)'};
+    `;
+  }}
 `;
 
 const FooterWrapper = styled.div`
@@ -44,11 +48,10 @@ const FooterWrapper = styled.div`
 
 const FooterCopyRight = styled.div`
   font-size: 0.8rem;
+  letter-spacing: 0.5px;
 
   @media (max-width: 559px) {
     margin: 1rem 0;
     flex-direction: column;
   }
 `;
-
-export default Footer;
