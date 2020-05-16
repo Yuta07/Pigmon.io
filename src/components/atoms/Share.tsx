@@ -14,7 +14,7 @@ export const Share = ({ title, slug }: ShareProps) => {
     <ShareContainer>
       <ShareText>SHARE</ShareText>
       <ShareLinkItem href={twitterUrl} target="_blank" rel="noopener">
-        <ShareTwitter src="/shares/twitter.svg" alt="twitter" />
+        <ShareTwitter src="/links/twitter.svg" alt="twitter" />
       </ShareLinkItem>
     </ShareContainer>
   );
