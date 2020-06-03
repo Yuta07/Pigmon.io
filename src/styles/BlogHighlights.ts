@@ -14,7 +14,7 @@ export const BlogHighlights = css`
   .gatsby-highlight {
     background-color: #11172b;
     border-radius: 0.3em;
-    margin: 1em 0;
+    margin: 2em 0;
     padding: 1em;
     overflow: auto;
   }
