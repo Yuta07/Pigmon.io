@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import _ from 'lodash';
-import { Category } from '../organisms/Category';
 import { Layout } from '../Layout';
 import { SEO } from '../atoms/SEO';
 import * as Post from '../../styles/PostIndex';
@@ -72,7 +71,6 @@ const CategoryIndex = (props: IndexPageProps) => {
   return (
     <Layout>
       <SEO title={props.pageContext.category} lang="ja" description="" meta={[]} />
-      <Category />
       <Post.IndexContainer>
         <Post.BlogPostsContainer>{renderIndexPagePost}</Post.BlogPostsContainer>
       </Post.IndexContainer>
